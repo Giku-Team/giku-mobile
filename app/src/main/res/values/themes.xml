@@ -1,0 +1,115 @@
+<resources>
+    <style name="Theme.Giku" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color based on misty rose with sufficient contrast -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+
+        <!-- Secondary color for contrast (blue tones for visibility) -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+
+        <!-- Background and Surface Colors -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/on_background</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+
+        <!-- Status Bar and Navigation Bar Colors -->
+        <item name="android:statusBarColor">@color/primary_variant</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Error Colors -->
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/on_primary</item>
+
+        <!-- Toolbar Styling -->
+        <item name="toolbarStyle">@style/Widget.Giku.Toolbar</item>
+
+        <!-- Floating Action Button (FAB) Styling -->
+        <item name="floatingActionButtonStyle">@style/Widget.Giku.FloatingActionButton</item>
+
+        <!-- Text Appearance for Headings and Body Text -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Giku.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Giku.Headline2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Giku.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Giku.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Giku.Button</item>
+
+        <!-- Button Styling -->
+        <item name="buttonStyle">@style/Widget.Giku.Button</item>
+
+        <!-- CardView Styling -->
+        <item name="cardViewStyle">@style/Widget.Giku.CardView</item>
+
+        <!-- Icon and Ripple Color for better visibility -->
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/secondary_variant</item>
+        <item name="colorControlHighlight">@color/secondary</item>
+        <item name="colorAccent">@color/secondary</item>
+
+        <!-- Dialog and AlertDialog Styling -->
+        <item name="dialogTheme">@style/ThemeOverlay.Giku.Dialog</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.Giku.AlertDialog</item>
+    </style>
+
+    <!-- Toolbar Style -->
+    <style name="Widget.Giku.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/primary</item>
+        <item name="titleTextColor">@color/on_primary</item>
+        <item name="subtitleTextColor">@color/on_primary</item>
+    </style>
+
+    <!-- Floating Action Button (FAB) Style -->
+    <style name="Widget.Giku.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/secondary</item>
+        <item name="rippleColor">@color/secondary_variant</item>
+    </style>
+
+    <!-- Text Appearances for various text styles -->
+    <style name="TextAppearance.Giku.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+    <style name="TextAppearance.Giku.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+    <style name="TextAppearance.Giku.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+    <style name="TextAppearance.Giku.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+    <style name="TextAppearance.Giku.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/on_secondary</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="Widget.Giku.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/secondary</item>
+        <item name="rippleColor">@color/secondary_variant</item>
+        <item name="android:textColor">@color/on_secondary</item>
+    </style>
+
+    <!-- CardView Style -->
+    <style name="Widget.Giku.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
+    <!-- Dialog and AlertDialog Theme Overlay -->
+    <style name="ThemeOverlay.Giku.Dialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+    </style>
+    <style name="ThemeOverlay.Giku.AlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+    </style>
+</resources>

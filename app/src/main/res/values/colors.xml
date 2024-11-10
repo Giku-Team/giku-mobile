@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Shades of Pink and Red -->
+    <color name="lavender_blush">#FFF2F2</color>
+    <color name="misty_rose">#FFD9D9</color>
+    <color name="pink">#FFC1C4</color>
+    <color name="cherry_blossom_pink">#FFA8B1</color>
+    <color name="salmon_pink">#FF8FA2</color>
+    <color name="light_coral">#FF8888</color>
+    <color name="firebrick">#B22222</color>
+    <color name="crimson">#DC143C</color>
+
+    <!-- Shades of Blue and Green -->
+    <color name="azure">#F2FEFF</color>
+    <color name="celeste">#BFFDFE</color>
+    <color name="ice_blue">#89F7F2</color>
+    <color name="turquoise">#52E4D4</color>
+    <color name="light_sky_blue">#87CEFA</color>
+    <color name="powder_blue">#B0E0E6</color>
+    <color name="teal">#008080</color>
+    <color name="dark_cyan">#008B8B</color>
+
+    <!-- Darker Tones and Neutrals -->
+    <color name="black_bean">#2F0D14</color>
+    <color name="dark_green">#002622</color>
+    <color name="black_olive">#212922</color>
+    <color name="federal_blue">#080357</color>
+    <color name="charcoal">#36454F</color>
+    <color name="slate_gray">#708090</color>
+    <color name="dim_gray">#696969</color>
+    <color name="gainsboro">#DCDCDC</color>
+    <color name="platinum">#E5E4E2</color>
+
+    <!-- Additional Colors for High Contrast Elements -->
+    <color name="dark_gray">#333333</color>
+    <color name="light_gray">#E5E5E5</color>
+    <color name="highlight_pink">#F06060</color>
+
+    <!-- Theme Colors -->
+    <color name="primary">#FFD9D9</color>
+    <color name="primary_variant">#FF8FA2</color>
+    <color name="secondary">#87CEFA</color>
+    <color name="secondary_variant">#2F0D14</color>
+
+    <!-- Background and Surface Colors -->
+    <color name="background">#FFD9D9</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Error Colors -->
+    <color name="error">#B22222</color>
+
+    <!-- Text and Icon Colors on Different Surfaces -->
+    <color name="on_primary">#333333</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_background">#333333</color>
+    <color name="on_surface">#333333</color>
+
+    <!-- Colors for Dark Theme -->
+    <color name="primary_dark">#8B5A67</color>
+    <color name="primary_variant_dark">#5B2C35</color>
+    <color name="secondary_dark">#5B9BD5</color>
+    <color name="secondary_variant_dark">#2A3A4E</color>
+    <color name="background_dark">#121212</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="on_primary_dark">#E5E5E5</color>
+    <color name="on_secondary_dark">#FFFFFF</color>
+    <color name="on_background_dark">#E5E5E5</color>
+    <color name="on_surface_dark">#E5E5E5</color>
+    <color name="error_dark">#FF6B6B</color>
+    <color name="on_error_dark">#FFFFFF</color>
+</resources>
