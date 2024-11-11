@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.mobile.giku"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.mobile.giku"
