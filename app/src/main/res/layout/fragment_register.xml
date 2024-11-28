@@ -3,8 +3,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.auth.RegisterFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontalLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.10"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.05"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.95"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:textColor="@color/md_theme_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalLogo"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/email"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/tvRegister"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_email"
+            android:inputType="textEmailAddress"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/name"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_name"
+            android:inputType="textEmailAddress"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/password"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_password"
+            android:inputType="textPassword"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/confirm_password"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_onBackground"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvConfirmPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/match_your_pasword"
+            android:inputType="textPassword"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/register"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tilConfirmPassword"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvAlreadyHaveAnAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_have_an_account"
+        app:layout_constraintEnd_toStartOf="@id/tvLogin"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:trackColor="@color/md_theme_secondaryFixedDim"
+        app:indicatorColor="@color/md_theme_primary"
+        app:indicatorSize="50dp"
+        app:indicatorDirectionCircular="clockwise"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
