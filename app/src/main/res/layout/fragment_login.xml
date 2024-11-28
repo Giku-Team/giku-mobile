@@ -157,7 +157,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:text="Login"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
@@ -192,9 +192,9 @@
         app:indicatorSize="50dp"
         app:indicatorDirectionCircular="clockwise"
         android:indeterminate="true"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
