@@ -46,7 +46,7 @@
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:textStyle="bold"
         android:textSize="32sp"
         android:textColor="@color/md_theme_onBackground"
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Email"
+        android:text="@string/email"
         android:textStyle="bold"
         android:textColor="@color/md_theme_onBackground"
         app:layout_constraintTop_toBottomOf="@id/tvRegister"
@@ -79,7 +79,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter your email"
+            android:hint="@string/enter_your_email"
             android:inputType="textEmailAddress"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Name"
+        android:text="@string/name"
         android:textStyle="bold"
         android:textColor="@color/md_theme_onBackground"
         app:layout_constraintTop_toBottomOf="@id/tilEmail"
@@ -109,7 +109,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter your name"
+            android:hint="@string/enter_your_name"
             android:inputType="textEmailAddress"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -119,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Password"
+        android:text="@string/password"
         android:textStyle="bold"
         android:textColor="@color/md_theme_onBackground"
         app:layout_constraintTop_toBottomOf="@id/tilName"
@@ -139,7 +139,7 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter your pasword"
+            android:hint="@string/enter_your_password"
             android:inputType="textPassword"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -149,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Confirm Password"
+        android:text="@string/confirm_password"
         android:textStyle="bold"
         android:textColor="@color/md_theme_onBackground"
         app:layout_constraintTop_toBottomOf="@id/tilPassword"
@@ -169,7 +169,7 @@
             android:id="@+id/etConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Match your pasword"
+            android:hint="@string/match_your_pasword"
             android:inputType="textPassword"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -178,7 +178,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Login"
+        android:text="@string/register"
         android:layout_marginTop="35dp"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
@@ -189,7 +189,7 @@
         android:id="@+id/tvAlreadyHaveAnAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? "
+        android:text="@string/already_have_an_account"
         app:layout_constraintEnd_toStartOf="@id/tvLogin"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
 
@@ -197,7 +197,7 @@
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
