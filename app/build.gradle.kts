@@ -10,6 +10,14 @@ val properties = Properties().apply {
     load(file("local.properties").inputStream())
 }
 
+val major = System.getenv("MAJOR_VERSION")?.toIntOrNull() ?: 1
+val minor = System.getenv("MINOR_VERSION")?.toIntOrNull() ?: 0
+val patch = System.getenv("PATCH_VERSION")?.toIntOrNull() ?: 0
+
+val versionCodeBase = 10000
+val versionCode = versionCodeBase + (major * 10000) + (minor * 100) + patch
+val versionName = "$major.$minor.$patch"
+
 val baseUrl: String = properties.getProperty("BASE_URL") ?: "default_url"
 val loginUrl: String = properties.getProperty("LOGIN_URL") ?: "default_url"
 val registerUrl: String = properties.getProperty("REGISTER_URL") ?: "default_url"
@@ -22,38 +30,40 @@ android {
         applicationId = "com.mobile.giku"
         minSdk = 29
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = versionCode
+        versionName = versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
         debug {
             isMinifyEnabled = false
-            buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
-            buildConfigField("String", "LOGIN_URL", "\"${loginUrl}\"")
-            buildConfigField("String", "REGISTER_URL", "\"${registerUrl}\"")
+            buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+            buildConfigField("String", "LOGIN_URL", "\"$loginUrl\"")
+            buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
-            buildConfigField("String", "LOGIN_URL", "\"${loginUrl}\"")
-            buildConfigField("String", "REGISTER_URL", "\"${registerUrl}\"")
+            buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+            buildConfigField("String", "LOGIN_URL", "\"$loginUrl\"")
+            buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = "17"
     }
+
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -61,7 +71,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -85,4 +94,10 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coil)
+}
+
+tasks.register("printVersionName") {
+    doLast {
+        println(android.defaultConfig.versionName)
+    }
 }
