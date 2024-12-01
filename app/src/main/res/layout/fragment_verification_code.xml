@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalLogo"/>
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvForgotPassword"
+        android:id="@+id/tvVerification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/verification_code"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvForgotPasswordInstruction"
+        android:id="@+id/tvVerificationInstruction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="textStart"
@@ -87,5 +87,57 @@
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalLogo"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/tilPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvVerificationInstruction">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter the pin"
+            android:inputType="number"
+            android:maxLines="1"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/confirm"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="20dp"
+        app:cornerRadius="16dp"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tilPin"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:trackColor="@color/md_theme_secondaryFixedDim"
+        app:indicatorColor="@color/md_theme_primary"
+        app:indicatorSize="50dp"
+        app:indicatorDirectionCircular="clockwise"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
