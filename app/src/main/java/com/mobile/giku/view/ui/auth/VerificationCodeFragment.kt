@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.mobile.giku.databinding.FragmentRegisterBinding
+import com.mobile.giku.databinding.FragmentVerificationCodeBinding
 
-class RegisterFragment : Fragment() {
+class VerificationCodeFragment : Fragment() {
 
-    private var _binding: FragmentRegisterBinding? = null
+    private var _binding: FragmentVerificationCodeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,13 +17,12 @@ class RegisterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRegisterBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentVerificationCodeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
     }
 
@@ -31,4 +30,5 @@ class RegisterFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

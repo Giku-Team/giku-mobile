@@ -86,11 +86,16 @@
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/tilEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/tvEmail">
@@ -101,6 +106,7 @@
             android:layout_height="match_parent"
             android:hint="@string/enter_your_email"
             android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,11 +122,17 @@
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/tilName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:endIconMode="password_toggle"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/tvName">
@@ -131,6 +143,7 @@
             android:layout_height="match_parent"
             android:hint="@string/enter_your_name"
             android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,11 +159,17 @@
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/tilPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:endIconMode="password_toggle"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/tvPassword">
@@ -161,6 +180,7 @@
             android:layout_height="match_parent"
             android:hint="@string/enter_your_password"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,11 +196,17 @@
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/tilConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:endIconMode="password_toggle"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/tvConfirmPassword">
@@ -191,6 +217,7 @@
             android:layout_height="match_parent"
             android:hint="@string/match_your_password"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -201,6 +228,7 @@
         android:text="@string/register"
         android:layout_marginTop="35dp"
         android:layout_marginHorizontal="20dp"
+        app:cornerRadius="16dp"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
         app:layout_constraintTop_toBottomOf="@id/tilConfirmPassword"/>
