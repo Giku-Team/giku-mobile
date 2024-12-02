@@ -13,30 +13,30 @@ private val Context.dataStore by preferencesDataStore(BuildConfig.AUTH_PREFERENC
 
 class AuthDataStore(private val context: Context) {
 
-    private val TOKEN_KEY = stringPreferencesKey(BuildConfig.TOKEN)
-    private val LOGIN_STATUS_KEY = stringPreferencesKey(BuildConfig.LOGIN_STATUS)
+    private val tokenKey = stringPreferencesKey(BuildConfig.TOKEN)
+    private val loginStatusKey = stringPreferencesKey(BuildConfig.LOGIN_STATUS)
 
     suspend fun saveToken(token: String) {
         context.dataStore.edit { preferences ->
-            preferences[TOKEN_KEY] = token
+            preferences[tokenKey] = token
         }
     }
 
     suspend fun clearToken() {
         context.dataStore.edit { preferences ->
-            preferences.remove(TOKEN_KEY)
+            preferences.remove(tokenKey)
         }
     }
 
     suspend fun setLoginStatus(status: Boolean) {
         context.dataStore.edit { preferences ->
-            preferences[LOGIN_STATUS_KEY] = status.toString()
+            preferences[loginStatusKey] = status.toString()
         }
     }
 
     fun getLoginStatus(): LiveData<Boolean> =
         context.dataStore.data.map { preferences ->
-            preferences[LOGIN_STATUS_KEY]?.toBoolean() ?: false
+            preferences[loginStatusKey]?.toBoolean() ?: false
         }.asLiveData()
 
     suspend fun clearAuthData() {
