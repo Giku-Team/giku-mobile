@@ -1,6 +1,5 @@
 package com.mobile.giku.viewmodel.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,8 +16,6 @@ class LoginViewModel(
 
     private val _loginState = MutableLiveData<UIState>().apply { value = UIState.Idle }
     val loginState: LiveData<UIState> = _loginState
-
-    val authToken: LiveData<String?> = authDataStore.getToken()
 
     val isLoggedIn: LiveData<Boolean> = authDataStore.getLoginStatus()
 
