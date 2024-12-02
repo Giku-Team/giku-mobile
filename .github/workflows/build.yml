@@ -1,4 +1,4 @@
-name: Giku App CI
+name: Giku App CI/CD
 
 on:
   push:
@@ -25,6 +25,9 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
 
+      - name: Decode Keystore
+        run: echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks
+
       - name: Extract Version from Gradle
         id: extract_version
         run: |
@@ -34,11 +37,29 @@ jobs:
       - name: Build APK (Debug)
         run: ./gradlew assembleDebug
 
+      - name: Build APK (Release)
+        run: ./gradlew assembleRelease
+
+      - name: Build AAB (Release)
+        run: ./gradlew bundleRelease
+
       - name: Upload Debug APK
         uses: actions/upload-artifact@v3
         with:
           name: debug-apk
           path: app/build/outputs/apk/debug/*.apk
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: app/build/outputs/apk/release/*.apk
+
+      - name: Upload Release AAB
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-aab
+          path: app/build/outputs/bundle/release/*.aab
 
   release:
     runs-on: ubuntu-latest
@@ -58,14 +79,14 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
 
+      - name: Decode Keystore
+        run: echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks
+
       - name: Build APK (Release)
         run: ./gradlew assembleRelease
 
-      - name: Upload Release APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-apk
-          path: app/build/outputs/apk/release/*.apk
+      - name: Build AAB (Release)
+        run: ./gradlew bundleRelease
 
       - name: Create and Push Git Tag
         run: |
@@ -80,5 +101,6 @@ jobs:
         run: |
           gh release create "v${{ env.versionName }}" \
             app/build/outputs/apk/release/*.apk \
+            app/build/outputs/bundle/release/*.aab \
             --title "Release v${{ env.versionName }}" \
             --notes "Automated release from GitHub Actions"
