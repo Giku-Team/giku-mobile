@@ -25,6 +25,11 @@ val authPrefs: String = properties.getProperty("AUTH_PREFERENCES") ?: "default_u
 val loginStatus: String = properties.getProperty("LOGIN_STATUS") ?: "default_url"
 val token: String = properties.getProperty("TOKEN") ?: "default_url"
 
+val isSigningConfigured = System.getenv("KEYSTORE_FILE") != null &&
+        System.getenv("KEYSTORE_PASSWORD") != null &&
+        System.getenv("KEY_ALIAS") != null &&
+        System.getenv("KEY_PASSWORD") != null
+
 android {
     namespace = "com.mobile.giku"
     compileSdk = 34
@@ -37,6 +42,17 @@ android {
         versionName = versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    if (isSigningConfigured) {
+        signingConfigs {
+            create("release") {
+                storeFile = file(System.getenv("KEYSTORE_FILE"))
+                storePassword = System.getenv("KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("KEY_ALIAS")
+                keyPassword = System.getenv("KEY_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
@@ -55,6 +71,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (isSigningConfigured) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
             buildConfigField("String", "LOGIN_URL", "\"$loginUrl\"")
             buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
