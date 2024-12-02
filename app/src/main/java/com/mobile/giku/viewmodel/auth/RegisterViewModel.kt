@@ -19,7 +19,7 @@ class RegisterViewModel(
         _registerState.value = UIState.Loading
         viewModelScope.launch {
             val result = repository.register(email, password, name)
-            result.onSuccess { response ->
+            result.onSuccess {
                 _registerState.value = UIState.Success
             }.onFailure {
                 _registerState.value = UIState.Error(it.message ?: "Registration failed")

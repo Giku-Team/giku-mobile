@@ -22,11 +22,6 @@ class AuthDataStore(private val context: Context) {
         }
     }
 
-    fun getToken(): LiveData<String?> =
-        context.dataStore.data.map { preferences ->
-            preferences[TOKEN_KEY]
-        }.asLiveData()
-
     suspend fun clearToken() {
         context.dataStore.edit { preferences ->
             preferences.remove(TOKEN_KEY)
