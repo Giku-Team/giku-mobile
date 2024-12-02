@@ -19,4 +19,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="verification_code">Verification Code</string>
+    <string name="confirm">Confirm</string>
+    <string name="name_is_required">Name is required</string>
+    <string name="name_must_be_at_least_3_characters">Name must be at least 3 characters</string>
+    <string name="email_is_required">Email is required</string>
+    <string name="enter_a_valid_email_address">Enter a valid email address</string>
+    <string name="password_is_required">Password is required</string>
+    <string name="password_must_be_at_least_8_characters">Password must be at least 8 characters</string>
+    <string name="password_must_contain_at_least_one_uppercase_letter">Password must contain at least one uppercase letter</string>
+    <string name="password_must_contain_at_least_one_lowercase_letter">Password must contain at least one lowercase letter</string>
+    <string name="password_must_contain_at_least_one_digit">Password must contain at least one digit</string>
+    <string name="password_must_contain_at_least_one_special_character"><![CDATA[Password must contain at least one special character (@#$%^&+=)]]></string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="login_success">Login successfull</string>
 </resources>

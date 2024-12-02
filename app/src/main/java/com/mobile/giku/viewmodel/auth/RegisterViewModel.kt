@@ -9,7 +9,7 @@ import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 
 class RegisterViewModel(
-    private val repository: AuthRepository
+    private val repository: AuthRepository,
 ) : ViewModel() {
 
     private val _registerState = MutableLiveData<UIState>()
