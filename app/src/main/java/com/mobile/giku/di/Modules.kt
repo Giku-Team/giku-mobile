@@ -1,6 +1,7 @@
 package com.mobile.giku.di
 
 import com.mobile.giku.BuildConfig
+import com.mobile.giku.model.datastore.AuthDataStore
 import com.mobile.giku.model.remote.auth.AuthApiService
 import com.mobile.giku.repository.auth.AuthRepository
 import com.mobile.giku.viewmodel.auth.LoginViewModel
@@ -10,9 +11,9 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 val appModules = module {
+    single { AuthDataStore(get()) }
     single { AuthRepository(get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
@@ -21,10 +22,9 @@ val appModules = module {
 val networkModules = module {
     single {
         OkHttpClient.Builder()
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
             .build()
+
     }
 
     single {

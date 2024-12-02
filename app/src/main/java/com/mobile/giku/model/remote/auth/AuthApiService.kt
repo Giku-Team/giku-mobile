@@ -8,8 +8,8 @@ import retrofit2.http.POST
 interface AuthApiService {
 
     @POST(BuildConfig.REGISTER_URL)
-    suspend fun register(@Body request: RegisterRequest): Response<Unit>
+    suspend fun register(@Body request: RegisterRequest): Response<RegisterResponse>
 
     @POST(BuildConfig.LOGIN_URL)
-    suspend fun login(@Body request: LoginRequest): Response<Unit>
+    suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
 }
