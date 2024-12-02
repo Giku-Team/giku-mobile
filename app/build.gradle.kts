@@ -22,7 +22,8 @@ val baseUrl: String = properties.getProperty("BASE_URL") ?: "default_url"
 val loginUrl: String = properties.getProperty("LOGIN_URL") ?: "default_url"
 val registerUrl: String = properties.getProperty("REGISTER_URL") ?: "default_url"
 val authPrefs: String = properties.getProperty("AUTH_PREFERENCES") ?: "default_url"
-val loginStatus : String = properties.getProperty("LOGIN_STATUS") ?: "default_url"
+val loginStatus: String = properties.getProperty("LOGIN_STATUS") ?: "default_url"
+val token: String = properties.getProperty("TOKEN") ?: "default_url"
 
 android {
     namespace = "com.mobile.giku"
@@ -46,6 +47,7 @@ android {
             buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")
             buildConfigField("String", "LOGIN_STATUS", "\"$loginStatus\"")
+            buildConfigField("String", "TOKEN", "\"$token\"")
         }
         release {
             isMinifyEnabled = true
@@ -58,6 +60,7 @@ android {
             buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")
             buildConfigField("String", "LOGIN_STATUS", "\"$loginStatus\"")
+            buildConfigField("String", "TOKEN", "\"$token\"")
         }
     }
 

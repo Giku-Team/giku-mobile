@@ -9,7 +9,7 @@ import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 
 class RegisterViewModel(
-    private val repository: AuthRepository
+    private val repository: AuthRepository,
 ) : ViewModel() {
 
     private val _registerState = MutableLiveData<UIState>()
@@ -19,7 +19,7 @@ class RegisterViewModel(
         _registerState.value = UIState.Loading
         viewModelScope.launch {
             val result = repository.register(email, password, name)
-            result.onSuccess {
+            result.onSuccess { response ->
                 _registerState.value = UIState.Success
             }.onFailure {
                 _registerState.value = UIState.Error(it.message ?: "Registration failed")

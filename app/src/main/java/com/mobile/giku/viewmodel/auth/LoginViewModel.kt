@@ -1,5 +1,6 @@
 package com.mobile.giku.viewmodel.auth
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,25 +15,32 @@ class LoginViewModel(
     private val authDataStore: AuthDataStore
 ) : ViewModel() {
 
-    private val _loginState = MutableLiveData<UIState>()
+    private val _loginState = MutableLiveData<UIState>().apply { value = UIState.Idle }
     val loginState: LiveData<UIState> = _loginState
+
+    val authToken: LiveData<String?> = authDataStore.getToken()
+
+    val isLoggedIn: LiveData<Boolean> = authDataStore.getLoginStatus()
 
     fun login(email: String, password: String) {
         _loginState.value = UIState.Loading
         viewModelScope.launch {
-            val result = repository.login(email, password)
-            result.onSuccess {
-                _loginState.value = UIState.Success
-                authDataStore.setLoginStatus(true)
-            }.onFailure {
-                _loginState.value = UIState.Error(it.message ?: "Login failed")
-            }
+            repository.login(email, password)
+                .onSuccess { response ->
+                    authDataStore.setLoginStatus(true)
+                    authDataStore.saveToken(response.token)
+                    _loginState.value = UIState.Success
+                }
+                .onFailure { throwable ->
+                    _loginState.value = UIState.Error(throwable.message ?: "Unknown error occurred")
+                }
         }
     }
 
     fun logout() {
         viewModelScope.launch {
-            authDataStore.clearLoginStatus()
+            authDataStore.clearAuthData()
+            _loginState.value = UIState.Idle
         }
     }
 }
