@@ -24,6 +24,9 @@ val registerUrl: String = properties.getProperty("REGISTER_URL") ?: "default_url
 val authPrefs: String = properties.getProperty("AUTH_PREFERENCES") ?: "default_url"
 val loginStatus: String = properties.getProperty("LOGIN_STATUS") ?: "default_url"
 val token: String = properties.getProperty("TOKEN") ?: "default_url"
+val forgotPassword: String = properties.getProperty("FORGOT_PASSWORD_URL") ?: "default_url"
+val validateResetCode: String = properties.getProperty("VALIDATE_RESET_CODE_URL") ?: "default_url"
+val resetPassword: String = properties.getProperty("RESET_PASSWORD_URL") ?: "default_url"
 
 val isSigningConfigured = System.getenv("KEYSTORE_FILE") != null &&
         System.getenv("KEYSTORE_PASSWORD") != null &&
@@ -64,6 +67,9 @@ android {
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")
             buildConfigField("String", "LOGIN_STATUS", "\"$loginStatus\"")
             buildConfigField("String", "TOKEN", "\"$token\"")
+            buildConfigField("String", "FORGOT_PASSWORD_URL", "\"$forgotPassword\"")
+            buildConfigField("String", "VALIDATE_RESET_CODE_URL", "\"$validateResetCode\"")
+            buildConfigField("String", "RESET_PASSWORD_URL", "\"$resetPassword\"")
         }
         release {
             isMinifyEnabled = true
@@ -80,6 +86,9 @@ android {
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")
             buildConfigField("String", "LOGIN_STATUS", "\"$loginStatus\"")
             buildConfigField("String", "TOKEN", "\"$token\"")
+            buildConfigField("String", "FORGOT_PASSWORD_URL", "\"$forgotPassword\"")
+            buildConfigField("String", "VALIDATE_RESET_CODE_URL", "\"$validateResetCode\"")
+            buildConfigField("String", "RESET_PASSWORD_URL", "\"$resetPassword\"")
         }
     }
 

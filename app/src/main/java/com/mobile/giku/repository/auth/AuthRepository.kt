@@ -1,10 +1,14 @@
 package com.mobile.giku.repository.auth
 
 import com.mobile.giku.model.remote.auth.AuthApiService
+import com.mobile.giku.model.remote.auth.ForgotPasswordRequest
+import com.mobile.giku.model.remote.auth.GenericResponse
 import com.mobile.giku.model.remote.auth.LoginRequest
 import com.mobile.giku.model.remote.auth.LoginResponse
 import com.mobile.giku.model.remote.auth.RegisterRequest
 import com.mobile.giku.model.remote.auth.RegisterResponse
+import com.mobile.giku.model.remote.auth.ResetPasswordRequest
+import com.mobile.giku.model.remote.auth.ValidateResetCodeRequest
 import retrofit2.Response
 
 class AuthRepository(private val apiService: AuthApiService) {
@@ -34,6 +38,33 @@ class AuthRepository(private val apiService: AuthApiService) {
     suspend fun login(email: String, password: String): Result<LoginResponse> {
         return try {
             val response = apiService.login(LoginRequest(email, password))
+            handleResponse(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun forgotPassword(email: String): Result<GenericResponse> {
+        return try {
+            val response = apiService.forgotPassword(ForgotPasswordRequest(email))
+            handleResponse(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun validateResetCode(email: String, verificationCode: String): Result<GenericResponse> {
+        return try {
+            val response = apiService.validateResetCode(ValidateResetCodeRequest(email, verificationCode))
+            handleResponse(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun resetPassword(email: String, newPassword: String): Result<GenericResponse> {
+        return try {
+            val response = apiService.resetPassword(ResetPasswordRequest(email, newPassword))
             handleResponse(response)
         } catch (e: Exception) {
             Result.failure(e)

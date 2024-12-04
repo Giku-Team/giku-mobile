@@ -4,6 +4,7 @@ import com.mobile.giku.BuildConfig
 import com.mobile.giku.model.datastore.AuthDataStore
 import com.mobile.giku.model.remote.auth.AuthApiService
 import com.mobile.giku.repository.auth.AuthRepository
+import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import com.mobile.giku.viewmodel.auth.RegisterViewModel
 import okhttp3.OkHttpClient
@@ -17,6 +18,7 @@ val appModules = module {
     single { AuthRepository(get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
+    viewModel { ForgotPasswordViewModel(get()) }
 }
 
 val networkModules = module {

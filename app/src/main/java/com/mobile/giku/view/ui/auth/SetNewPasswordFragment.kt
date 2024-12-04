@@ -5,22 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.mobile.giku.databinding.FragmentForgotPasswordBinding
-import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.mobile.giku.databinding.FragmentSetNewPasswordBinding
 
-class ForgotPasswordFragment : Fragment() {
+class SetNewPasswordFragment : Fragment() {
 
-    private var _binding: FragmentForgotPasswordBinding? = null
+    private var _binding: FragmentSetNewPasswordBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ForgotPasswordViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentForgotPasswordBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentSetNewPasswordBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
