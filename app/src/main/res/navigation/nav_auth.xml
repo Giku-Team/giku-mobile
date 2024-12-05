@@ -34,5 +34,29 @@
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_verificationCodeFragment"
+            app:destination="@id/verificationCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verificationCodeFragment"
+        android:name="com.mobile.giku.view.ui.auth.VerificationCodeFragment"
+        android:label="fragment_verification_code"
+        tools:layout="@layout/fragment_verification_code" >
+        <action
+            android:id="@+id/action_verificationCodeFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_verificationCodeFragment_to_setNewPasswordFragment"
+            app:destination="@id/setNewPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setNewPasswordFragment"
+        android:name="com.mobile.giku.view.ui.auth.SetNewPasswordFragment"
+        android:label="fragment_set_new_password"
+        tools:layout="@layout/fragment_set_new_password" >
+        <action
+            android:id="@+id/action_setNewPasswordFragment_to_verificationCodeFragment"
+            app:destination="@id/verificationCodeFragment" />
     </fragment>
 </navigation>
