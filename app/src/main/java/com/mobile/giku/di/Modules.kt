@@ -7,6 +7,7 @@ import com.mobile.giku.repository.auth.AuthRepository
 import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import com.mobile.giku.viewmodel.auth.RegisterViewModel
+import com.mobile.giku.viewmodel.auth.SetNewPasswordViewModel
 import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
 import okhttp3.OkHttpClient
@@ -22,6 +23,7 @@ val appModules = module {
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
     viewModel { VerificationCodeViewModel(get()) }
+    viewModel { SetNewPasswordViewModel(get()) }
     viewModel { SharedAuthViewModel() }
 }
 
@@ -30,7 +32,6 @@ val networkModules = module {
         OkHttpClient.Builder()
             .retryOnConnectionFailure(true)
             .build()
-
     }
 
     single {
