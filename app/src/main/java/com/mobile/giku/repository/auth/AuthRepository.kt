@@ -58,7 +58,7 @@ class AuthRepository(private val apiService: AuthApiService) {
             val response = apiService.validateResetCode(ValidateResetCodeRequest(email, verificationCode))
             handleResponse(response)
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.failure(Exception("Network error: ${e.localizedMessage}"))
         }
     }
 

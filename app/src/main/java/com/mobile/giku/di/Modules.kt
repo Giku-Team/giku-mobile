@@ -7,6 +7,8 @@ import com.mobile.giku.repository.auth.AuthRepository
 import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import com.mobile.giku.viewmodel.auth.RegisterViewModel
+import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
+import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -19,6 +21,8 @@ val appModules = module {
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
+    viewModel { VerificationCodeViewModel(get()) }
+    viewModel { SharedAuthViewModel() }
 }
 
 val networkModules = module {
