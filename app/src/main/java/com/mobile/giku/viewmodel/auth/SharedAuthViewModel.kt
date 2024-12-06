@@ -12,8 +12,4 @@ class SharedAuthViewModel : ViewModel() {
     fun setEmail(value: String?) {
         _email.value = value
     }
-
-    fun getEmailOrDefault(defaultValue: String = ""): String {
-        return _email.value ?: defaultValue
-    }
 }
