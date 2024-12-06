@@ -34,9 +34,21 @@
     <string name="child_profile_input_form">Child Profile Input Form</string>
     <string name="error_empty_email">Please enter your email to proceed.</string>
     <string name="success_forgot_password">A verification code has been sent to your email.</string>
-    <string name="error_user_not_found">No account found with the provided email.</string>
-    <string name="error_request_timeout">Request timed out. Please try again.</string>
-    <string name="error_server">Server error. Please try again later.</string>
-    <string name="error_unknown">An unexpected error occurred. Please try again.</string>
     <string name="password_reset_success">Reset password success</string>
+    <string name="error_user_already_exists">User already exists. Please use a different email.</string>
+    <string name="error_request_timeout">Request timeout. Please check your network connection and try again.</string>
+    <string name="error_server">Server error. Please try again later.</string>
+    <string name="error_unknown">An unknown error occurred. Please try again.</string>
+    <string name="invalid_credentials">Invalid credentials. Please check your email and password.</string>
+    <string name="error_user_not_found">No account found with the provided email.</string>
+    <string name="verification_required">Verification required before resetting password.</string>
+    <string name="reset_time_expired">The reset time has expired. Please request a new link.</string>
+    <string name="verification_code_expired">Verification code has expired. Please request a new code.</string>
+    <string name="invalid_verification_code">Invalid verification code. Please check and try again.</string>
+    <string name="error_internal_server_error">Internal server error. Please try again later.</string>
+    <string name="successful_login">You have successfully logged in.</string>
+    <string name="user_registered_successfully">Your account has been successfully created. You can now log in.</string>
+    <string name="verification_code_sent_to_email">A verification code has been sent to your email. Please check your inbox.</string>
+    <string name="verification_successful">Your verification was successful. You can now proceed.</string>
+    <string name="password_updated_successfully">Your password has been successfully updated.</string>
 </resources>
