@@ -29,7 +29,7 @@ val appModules = module {
     single { AuthErrorMapper.SetNewPasswordErrorMapper(get()) }
 
     single { AuthDataStore(get()) }
-    single { AuthRepository(get()) }
+    single { AuthRepository(get(), get(), get(), get(), get(), get())}
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
