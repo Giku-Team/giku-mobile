@@ -132,6 +132,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coil)
     implementation(libs.barcode.scanning)
+    implementation(libs.androidx.viewpager2)
 }
 
 tasks.register("printVersionName") {
