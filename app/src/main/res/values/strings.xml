@@ -51,4 +51,7 @@
     <string name="verification_code_sent_to_email">A verification code has been sent to your email. Please check your inbox.</string>
     <string name="verification_successful">Your verification was successful. You can now proceed.</string>
     <string name="password_updated_successfully">Your password has been successfully updated.</string>
+    <string name="set_a_new_passwod">Set a new passwod</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
