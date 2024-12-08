@@ -35,6 +35,12 @@ jobs:
             echo "Debugging without keystore signing."
           fi
 
+      - name: Fix Permissions for Gradle Wrapper
+        run: |
+          echo "Fixing permissions for gradlew..."
+          chmod +x ./gradlew
+          ls -l ./gradlew  # Optional: List the permissions to verify
+
       - name: Extract Version from Gradle
         id: extract_version
         run: |
