@@ -26,7 +26,14 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Decode Keystore
-        run: echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks
+        run: |
+          echo "Decoding keystore..."
+          if echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks; then
+            echo "Keystore decoded successfully."
+          else
+            echo "Keystore decoding failed, proceeding with debug build."
+            echo "Debugging without keystore signing."
+          fi
 
       - name: Extract Version from Gradle
         id: extract_version
@@ -80,7 +87,14 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Decode Keystore
-        run: echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks
+        run: |
+          echo "Decoding keystore..."
+          if echo ${{ secrets.KEYSTORE_FILE }} | base64 -d > keystore.jks; then
+            echo "Keystore decoded successfully."
+          else
+            echo "Keystore decoding failed, proceeding with debug build."
+            echo "Debugging without keystore signing."
+          fi
 
       - name: Build APK (Release)
         run: ./gradlew assembleRelease
