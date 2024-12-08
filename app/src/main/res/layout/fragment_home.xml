@@ -7,15 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.main.HomeFragment">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+    <com.kizitonwose.calendar.view.CalendarView
+        android:id="@+id/mtrl_calendar_day_selector_frame"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textStyle="bold"
-        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:cv_orientation="horizontal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

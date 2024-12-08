@@ -133,6 +133,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.barcode.scanning)
     implementation(libs.androidx.viewpager2)
+    implementation("com.kizitonwose.calendar:view:2.6.1")
 }
 
 tasks.register("printVersionName") {
