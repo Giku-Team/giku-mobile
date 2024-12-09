@@ -20,6 +20,7 @@ constraintlayout = "2.2.0"
 navigationFragmentKtx = "2.8.4"
 roomCompiler = "2.6.1"
 roomRuntime = "2.6.1"
+view = "2.6.1"
 viewpager2 = "1.1.0"
 
 [libraries]
@@ -48,6 +49,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+view = { module = "com.kizitonwose.calendar:view", version.ref = "view" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
