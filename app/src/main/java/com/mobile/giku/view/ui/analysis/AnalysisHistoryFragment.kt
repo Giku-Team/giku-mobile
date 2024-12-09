@@ -1,15 +1,15 @@
-package com.mobile.giku.view.ui.main
+package com.mobile.giku.view.ui.analysis
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.mobile.giku.databinding.FragmentAddChildProfileBinding
+import com.mobile.giku.databinding.FragmentAnalysisHistoryBinding
 
-class AddChildProfile : Fragment() {
+class AnalysisHistoryFragment : Fragment() {
 
-    private var _binding: FragmentAddChildProfileBinding? = null
+    private var _binding: FragmentAnalysisHistoryBinding? = null
     private  val binding get() = _binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class AddChildProfile : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddChildProfileBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentAnalysisHistoryBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
