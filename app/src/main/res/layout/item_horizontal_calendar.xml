@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardItemCalendar"
+    android:layout_width="60dp"
+    android:layout_height="90dp"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="1dp"
+    android:layout_marginVertical="1dp"
+    android:elevation="2dp"
+    app:strokeColor="@android:color/transparent"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="6dp"
+        android:paddingHorizontal="2dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtrl_calendar_days_of_week"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Day"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtrl_calendar_date_of_week"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="12"
+            android:textStyle="bold"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
