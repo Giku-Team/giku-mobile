@@ -22,6 +22,8 @@ class CameraFragment : Fragment() {
     private var _binding: FragmentCameraBinding? = null
     private val binding get() = _binding!!
 
+    private var currentCameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
     private val cameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -59,7 +61,7 @@ class CameraFragment : Fragment() {
         }
 
         binding.ivRotate.setOnClickListener {
-            setupRotation()
+            toggleCamera()
         }
     }
 
@@ -73,10 +75,11 @@ class CameraFragment : Fragment() {
                     surfaceProvider = binding.cameraPreview.surfaceProvider
                 }
 
+                // Bind the selected camera
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
                     viewLifecycleOwner,
-                    CameraSelector.DEFAULT_BACK_CAMERA,
+                    currentCameraSelector,
                     preview
                 )
             } catch (exc: Exception) {
@@ -85,14 +88,13 @@ class CameraFragment : Fragment() {
         }, ContextCompat.getMainExecutor(requireContext()))
     }
 
-    private fun setupRotation() {
-        val isRotated = binding.ivRotate.rotation != 180f
-        val rotationAngle = if (isRotated) 180f else 0f
-
-        binding.ivRotate.animate()
-            .rotation(rotationAngle)
-            .setDuration(300)
-            .start()
+    private fun toggleCamera() {
+        currentCameraSelector = if (currentCameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+            CameraSelector.DEFAULT_FRONT_CAMERA
+        } else {
+            CameraSelector.DEFAULT_BACK_CAMERA
+        }
+        startCamera()
     }
 
     override fun onDestroyView() {
