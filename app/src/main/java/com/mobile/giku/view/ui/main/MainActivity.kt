@@ -1,6 +1,7 @@
 package com.mobile.giku.view.ui.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -25,6 +26,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNavigation.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.cameraFragment -> {
+                    binding.bottomNavigation.visibility = View.GONE
+                }
+                else -> {
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                }
+            }
+        }
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
