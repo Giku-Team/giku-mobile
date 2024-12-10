@@ -127,13 +127,17 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
     implementation(libs.koin.android)
-    implementation(libs.androidx.camera.core)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coil)
     implementation(libs.barcode.scanning)
     implementation(libs.androidx.viewpager2)
     implementation(libs.view)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.extensions)
+    implementation(libs.androidx.camera.camera2)
 }
 
 tasks.register("printVersionName") {
