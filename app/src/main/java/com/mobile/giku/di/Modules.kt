@@ -3,7 +3,9 @@ package com.mobile.giku.di
 import com.mobile.giku.BuildConfig
 import com.mobile.giku.model.datastore.AuthDataStore
 import com.mobile.giku.model.remote.auth.AuthApiService
+import com.mobile.giku.model.remote.nutrient.NutrientApiService
 import com.mobile.giku.repository.auth.AuthRepository
+import com.mobile.giku.repository.nutrient.NutrientRepository
 import com.mobile.giku.utils.AuthErrorMapper
 import com.mobile.giku.utils.StringProvider
 import com.mobile.giku.utils.StringProviderImpl
@@ -30,6 +32,7 @@ val appModules = module {
 
     single { AuthDataStore(get()) }
     single { AuthRepository(get(), get(), get(), get(), get(), get())}
+    single { NutrientRepository(get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
@@ -55,5 +58,8 @@ val networkModules = module {
 
     single {
         get<Retrofit>().create(AuthApiService::class.java)
+    }
+    single {
+        get<Retrofit>().create(NutrientApiService::class.java)
     }
 }
