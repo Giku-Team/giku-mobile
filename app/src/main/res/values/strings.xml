@@ -54,4 +54,7 @@
     <string name="set_a_new_passwod">Set a new passwod</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="analyze">Analyze</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
 </resources>
