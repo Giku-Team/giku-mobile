@@ -47,10 +47,8 @@ class AnalysisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Get the captured image path from arguments
         val capturedImagePath = arguments?.getString("capturedImagePath")
 
-        // If an image path is passed, load it into the preview
         capturedImagePath?.let {
             val imageUri = Uri.parse(it)
             binding.previewImageView.setImageURI(imageUri)
@@ -65,7 +63,6 @@ class AnalysisFragment : Fragment() {
         }
 
         binding.analyzeButton.setOnClickListener {
-            // Add your analysis logic here
             Toast.makeText(requireContext(), "Analysis started", Toast.LENGTH_SHORT).show()
         }
     }

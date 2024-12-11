@@ -119,7 +119,6 @@ class CameraFragment : Fragment() {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
 
-                    // Navigate to AnalysisFragment with the captured image path
                     findNavController().navigate(
                         R.id.action_cameraFragment_to_analysisFragment,
                         Bundle().apply {
