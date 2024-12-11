@@ -67,7 +67,7 @@
         android:id="@+id/tvTitleCTA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Analyze the Food Product"
+        android:text="Hello, \nAnalyze your child food"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/md_theme_scrim"
@@ -110,7 +110,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginBottom="20dp"
             app:strokeColor="?attr/colorPrimary"
             app:strokeWidth="4dp"
             app:layout_constraintBottom_toTopOf="@+id/galleryCard"
@@ -164,13 +164,11 @@
                 android:contentDescription="@string/camera" />
         </com.google.android.material.card.MaterialCardView>
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/analyzeButton"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
             android:text="@string/analyze"
