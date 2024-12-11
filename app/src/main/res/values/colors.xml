@@ -4,6 +4,7 @@
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_primaryContainer">#C21C53</color>
     <color name="md_theme_onPrimaryContainer">#FFFFFF</color>
+    <color name="md_theme_gray">#EDEDED</color>
 
     <!-- Secondary Colors -->
     <color name="md_theme_secondary">#9C3F54</color>

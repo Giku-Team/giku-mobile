@@ -80,7 +80,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/name"
         android:textStyle="bold"
-        android:textColor="@color/md_theme_onBackground"
+        android:textColor="@color/md_theme_scrim"
         app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalLogo"
         app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
 
@@ -108,5 +108,83 @@
             android:maxLines="1"
             android:elegantTextHeight="true"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/date_of_birth"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_scrim"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
+        app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/tilDateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_calendar"
+        app:errorEnabled="true"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintTop_toBottomOf="@id/tvDateOfBirth">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/select_date"
+            android:clickable="true"
+            android:inputType="none"
+            android:maxLines="1"
+            android:focusable="false"
+            android:elegantTextHeight="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/gender"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_scrim"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintTop_toBottomOf="@id/tilDateOfBirth"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMaleGender"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="Male"
+        android:textColor="@color/md_theme_scrim"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="8dp"
+        android:backgroundTint="@color/md_theme_gray"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
+        app:layout_constraintTop_toBottomOf="@id/tvGender" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFemaleGender"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:text="Female"
+        android:textColor="@color/md_theme_scrim"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="8dp"
+        android:backgroundTint="@color/md_theme_gray"
+        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"
+        app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+        app:layout_constraintTop_toBottomOf="@id/tvGender" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
