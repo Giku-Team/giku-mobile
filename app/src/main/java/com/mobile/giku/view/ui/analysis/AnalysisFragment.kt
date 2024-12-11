@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mobile.giku.R
+import androidx.fragment.app.Fragment
 import com.mobile.giku.databinding.FragmentAnalysisBinding
 
 class AnalysisFragment : Fragment() {

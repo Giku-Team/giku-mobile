@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -26,7 +28,7 @@ class CameraFragment : Fragment() {
 
     private var currentCameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private lateinit var imageCapture: ImageCapture
-
+  
     private val cameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->

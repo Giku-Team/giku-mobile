@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.giku.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.giku.databinding.FragmentHomeBinding
 import com.mobile.giku.view.adapter.CalendarAdapter
 import java.text.SimpleDateFormat

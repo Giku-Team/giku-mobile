@@ -10,6 +10,7 @@ import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAddChildProfileBinding
 import java.text.SimpleDateFormat
 import java.util.*
+import com.mobile.giku.databinding.FragmentAddChildProfileBinding
 
 class AddChildProfileFragment : Fragment() {
 
@@ -21,7 +22,6 @@ class AddChildProfileFragment : Fragment() {
     private var isBloodTypeBSelected = false
     private var isBloodTypeABSelected = false
     private var isBloodTypeOSelected = false
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
