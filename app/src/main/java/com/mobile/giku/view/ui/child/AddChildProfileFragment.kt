@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAddChildProfileBinding
 import java.text.SimpleDateFormat
-import java.util.*
-import com.mobile.giku.databinding.FragmentAddChildProfileBinding
+import java.util.Calendar
+import java.util.Locale
 
 class AddChildProfileFragment : Fragment() {
 

@@ -61,7 +61,7 @@
         android:background="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitleCTA"
@@ -72,7 +72,7 @@
         android:textStyle="bold"
         android:textColor="@color/md_theme_scrim"
         app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalLogo"
-        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"/>
+        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clAnalysis"
@@ -135,6 +135,7 @@
                 android:id="@+id/galleryImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/md_theme_primary"
                 android:src="@drawable/ic_gallery"
                 android:padding="12dp"
                 android:outlineAmbientShadowColor="@color/md_theme_scrim"
