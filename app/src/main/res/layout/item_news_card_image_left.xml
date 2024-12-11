@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/newsItemCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/md_theme_primary"
+        android:layout_alignBottom="@id/ivNews"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/newsDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNewsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How home food availability affects young children's nutrient intake"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/md_theme_onPrimary"
+                android:maxLines="2"
+                android:maxEms="10"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/btnSeeNews"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSeeNews"
+                android:layout_width="140dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:text="Find More"
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/md_theme_onPrimary"
+                android:textColor="@color/md_theme_primary"
+                android:textSize="14sp"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@id/tvNewsTitle"
+                app:layout_constraintStart_toStartOf="@id/tvNewsTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivNews"
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_alignStart="@id/newsItemCard"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="-8dp"
+        android:contentDescription="News Image"
+        android:src="@drawable/img_news_two"
+        android:clipChildren="false"
+        android:elevation="8dp"/>
+
+</RelativeLayout>
