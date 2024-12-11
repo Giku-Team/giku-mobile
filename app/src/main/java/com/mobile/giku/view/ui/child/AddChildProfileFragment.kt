@@ -17,6 +17,10 @@ class AddChildProfileFragment : Fragment() {
     private val binding get() = _binding!!
     private var isMaleSelected = false
     private var isFemaleSelected = false
+    private var isBloodTypeASelected = false
+    private var isBloodTypeBSelected = false
+    private var isBloodTypeABSelected = false
+    private var isBloodTypeOSelected = false
 
 
     override fun onCreateView(
@@ -34,7 +38,9 @@ class AddChildProfileFragment : Fragment() {
         binding.etDateOfBirth.setOnClickListener {
             showDatePicker()
         }
+
         setGenderButtonState()
+        setBloodTypeButtonState()
 
         binding.btnMaleGender.setOnClickListener {
             isMaleSelected = true
@@ -46,6 +52,30 @@ class AddChildProfileFragment : Fragment() {
             isMaleSelected = false
             isFemaleSelected = true
             setGenderButtonState()
+        }
+
+        binding.btnBloodTypeA.setOnClickListener {
+            resetBloodTypeStates()
+            isBloodTypeASelected = true
+            setBloodTypeButtonState()
+        }
+
+        binding.btnBloodTypeB.setOnClickListener {
+            resetBloodTypeStates()
+            isBloodTypeBSelected = true
+            setBloodTypeButtonState()
+        }
+
+        binding.btnBloodTypeAB.setOnClickListener {
+            resetBloodTypeStates()
+            isBloodTypeABSelected = true
+            setBloodTypeButtonState()
+        }
+
+        binding.btnBloodTypeO.setOnClickListener {
+            resetBloodTypeStates()
+            isBloodTypeOSelected = true
+            setBloodTypeButtonState()
         }
     }
 
@@ -99,6 +129,75 @@ class AddChildProfileFragment : Fragment() {
             }
             setTextColor(
                 if (isFemaleSelected) {
+                    resources.getColor(R.color.md_theme_onPrimary, null)
+                } else {
+                    resources.getColor(R.color.md_theme_scrim, null)
+                }
+            )
+        }
+    }
+
+    private fun resetBloodTypeStates() {
+        isBloodTypeASelected = false
+        isBloodTypeBSelected = false
+        isBloodTypeABSelected = false
+        isBloodTypeOSelected = false
+    }
+
+    private fun setBloodTypeButtonState() {
+        binding.btnBloodTypeA.apply {
+            backgroundTintList = if (isBloodTypeASelected) {
+                resources.getColorStateList(R.color.md_theme_primary, null)
+            } else {
+                resources.getColorStateList(R.color.md_theme_gray, null)
+            }
+            setTextColor(
+                if (isBloodTypeASelected) {
+                    resources.getColor(R.color.md_theme_onPrimary, null)
+                } else {
+                    resources.getColor(R.color.md_theme_scrim, null)
+                }
+            )
+        }
+
+        binding.btnBloodTypeB.apply {
+            backgroundTintList = if (isBloodTypeBSelected) {
+                resources.getColorStateList(R.color.md_theme_primary, null)
+            } else {
+                resources.getColorStateList(R.color.md_theme_gray, null)
+            }
+            setTextColor(
+                if (isBloodTypeBSelected) {
+                    resources.getColor(R.color.md_theme_onPrimary, null)
+                } else {
+                    resources.getColor(R.color.md_theme_scrim, null)
+                }
+            )
+        }
+
+        binding.btnBloodTypeAB.apply {
+            backgroundTintList = if (isBloodTypeABSelected) {
+                resources.getColorStateList(R.color.md_theme_primary, null)
+            } else {
+                resources.getColorStateList(R.color.md_theme_gray, null)
+            }
+            setTextColor(
+                if (isBloodTypeABSelected) {
+                    resources.getColor(R.color.md_theme_onPrimary, null)
+                } else {
+                    resources.getColor(R.color.md_theme_scrim, null)
+                }
+            )
+        }
+
+        binding.btnBloodTypeO.apply {
+            backgroundTintList = if (isBloodTypeOSelected) {
+                resources.getColorStateList(R.color.md_theme_primary, null)
+            } else {
+                resources.getColorStateList(R.color.md_theme_gray, null)
+            }
+            setTextColor(
+                if (isBloodTypeOSelected) {
                     resources.getColor(R.color.md_theme_onPrimary, null)
                 } else {
                     resources.getColor(R.color.md_theme_scrim, null)
