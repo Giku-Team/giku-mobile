@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.mobile.giku.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.giku.databinding.FragmentHomeBinding
 import com.mobile.giku.view.adapter.CalendarAdapter
@@ -39,6 +42,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupCalendarRecyclerView()
+        setupIconsListener()
     }
 
     private fun setupCalendarRecyclerView() {
@@ -48,6 +52,18 @@ class HomeFragment : Fragment() {
             this.adapter = adapter
         }
         binding.textMonthAndYearCalendar.text = currentDate
+    }
+
+    private fun setupIconsListener() {
+        binding.iconChildProfile.setOnClickListener {
+
+        }
+        binding.iconAnalysis.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_analysisFragment)
+        }
+        binding.iconArticles.setOnClickListener {
+
+        }
     }
 
     override fun onDestroyView() {
