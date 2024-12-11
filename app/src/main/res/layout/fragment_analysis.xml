@@ -67,7 +67,7 @@
         android:id="@+id/tvTitleCTA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello, \nAnalyze your child food"
+        android:text="@string/text_cta_analysis"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/md_theme_scrim"

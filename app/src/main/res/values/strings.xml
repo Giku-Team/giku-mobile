@@ -71,4 +71,5 @@
         Methionine (g): 0\n- Phenylalanine (g): 0\n- Threonine (g): 0\n- Tryptophan (g): 0\n-
         Valine (g): 0\n- Taurine (g): 0\n- Chloride (g): 0
     </string>
+    <string name="text_cta_analysis">Hello, \nAnalyze your child food</string>
 </resources>

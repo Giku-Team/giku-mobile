@@ -2,6 +2,7 @@ package com.mobile.giku.view.ui.main
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +11,11 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.*
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentCameraBinding
 import java.io.File
 import java.text.SimpleDateFormat
@@ -28,7 +28,7 @@ class CameraFragment : Fragment() {
 
     private var currentCameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private lateinit var imageCapture: ImageCapture
-  
+
     private val cameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -82,7 +82,9 @@ class CameraFragment : Fragment() {
                     surfaceProvider = binding.cameraPreview.surfaceProvider
                 }
 
-                imageCapture = ImageCapture.Builder().build()
+                imageCapture = ImageCapture.Builder()
+                    .setTargetResolution(android.util.Size(1280, 720))
+                    .build()
 
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
@@ -111,11 +113,19 @@ class CameraFragment : Fragment() {
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
         imageCapture.takePicture(
-            outputOptions, ContextCompat.getMainExecutor(requireContext()),
+            outputOptions,
+            ContextCompat.getMainExecutor(requireContext()),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    val msg = "Photo saved: ${photoFile.absolutePath}"
-                    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+                    val savedUri = Uri.fromFile(photoFile)
+
+                    // Navigate to AnalysisFragment with the captured image path
+                    findNavController().navigate(
+                        R.id.action_cameraFragment_to_analysisFragment,
+                        Bundle().apply {
+                            putString("capturedImagePath", savedUri.toString())
+                        }
+                    )
                 }
 
                 override fun onError(exception: ImageCaptureException) {

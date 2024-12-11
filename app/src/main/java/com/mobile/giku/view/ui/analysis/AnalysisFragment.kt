@@ -1,13 +1,9 @@
 package com.mobile.giku.view.ui.analysis
 
 import android.Manifest
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +11,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAnalysisBinding
 
 class AnalysisFragment : Fragment() {
@@ -29,15 +27,15 @@ class AnalysisFragment : Fragment() {
             } ?: Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show()
         }
 
-    private val cameraLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val imageBitmap = result.data?.extras?.get("data") as Bitmap
-                binding.previewImageView.setImageBitmap(imageBitmap)
-            } else {
-                Toast.makeText(requireContext(), "Camera cancelled", Toast.LENGTH_SHORT).show()
-            }
+    private val cameraPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            findNavController().navigate(R.id.action_analysisFragment_to_cameraFragment)
+        } else {
+            Toast.makeText(requireContext(), "Camera permission denied", Toast.LENGTH_SHORT).show()
         }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,12 +47,26 @@ class AnalysisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Get the captured image path from arguments
+        val capturedImagePath = arguments?.getString("capturedImagePath")
+
+        // If an image path is passed, load it into the preview
+        capturedImagePath?.let {
+            val imageUri = Uri.parse(it)
+            binding.previewImageView.setImageURI(imageUri)
+        }
+
         binding.galleryCard.setOnClickListener {
             checkAndRequestPermissionsForGallery()
         }
 
         binding.cameraCard.setOnClickListener {
             checkAndRequestPermissionsForCamera()
+        }
+
+        binding.analyzeButton.setOnClickListener {
+            // Add your analysis logic here
+            Toast.makeText(requireContext(), "Analysis started", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -79,9 +91,9 @@ class AnalysisFragment : Fragment() {
     private fun checkAndRequestPermissionsForCamera() {
         val cameraPermission = Manifest.permission.CAMERA
         if (ContextCompat.checkSelfPermission(requireContext(), cameraPermission) == PackageManager.PERMISSION_GRANTED) {
-            openCamera()
+            findNavController().navigate(R.id.action_analysisFragment_to_cameraFragment)
         } else {
-            requestPermissionsLauncher.launch(arrayOf(cameraPermission))
+            cameraPermissionLauncher.launch(cameraPermission)
         }
     }
 
@@ -92,7 +104,7 @@ class AnalysisFragment : Fragment() {
             when (entry.key) {
                 Manifest.permission.CAMERA -> {
                     if (entry.value) {
-                        openCamera()
+                        findNavController().navigate(R.id.action_analysisFragment_to_cameraFragment)
                     } else {
                         Toast.makeText(requireContext(), "Camera Permission Denied", Toast.LENGTH_SHORT).show()
                     }
@@ -110,11 +122,6 @@ class AnalysisFragment : Fragment() {
 
     private fun openGallery() {
         galleryLauncher.launch("image/*")
-    }
-
-    private fun openCamera() {
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        cameraLauncher.launch(cameraIntent)
     }
 
     override fun onDestroyView() {
