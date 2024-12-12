@@ -14,11 +14,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAnalysisBinding
+import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AnalysisFragment : Fragment() {
 
     private var _binding: FragmentAnalysisBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: AnalysisViewModel by viewModel()
 
     private val galleryLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->

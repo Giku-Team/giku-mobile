@@ -19,6 +19,7 @@ val versionCode = versionCodeBase + (major * 10000) + (minor * 100) + patch
 val versionName = "$major.$minor.$patch"
 
 val baseUrl: String = properties.getProperty("BASE_URL") ?: "default_url"
+val nutritionBaseUrl: String = properties.getProperty("NUTRITION_BASE_URL") ?: "default_url"
 val loginUrl: String = properties.getProperty("LOGIN_URL") ?: "default_url"
 val registerUrl: String = properties.getProperty("REGISTER_URL") ?: "default_url"
 val authPrefs: String = properties.getProperty("AUTH_PREFERENCES") ?: "default_url"
@@ -63,6 +64,7 @@ android {
         debug {
             isMinifyEnabled = false
             buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+            buildConfigField("String", "NUTRITION_BASE_URL", "\"$nutritionBaseUrl\"")
             buildConfigField("String", "LOGIN_URL", "\"$loginUrl\"")
             buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")
@@ -83,6 +85,7 @@ android {
                 signingConfig = signingConfigs.getByName("release")
             }
             buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+            buildConfigField("String", "NUTRITION_BASE_URL", "\"$nutritionBaseUrl\"")
             buildConfigField("String", "LOGIN_URL", "\"$loginUrl\"")
             buildConfigField("String", "REGISTER_URL", "\"$registerUrl\"")
             buildConfigField("String", "AUTH_PREFERENCES", "\"$authPrefs\"")

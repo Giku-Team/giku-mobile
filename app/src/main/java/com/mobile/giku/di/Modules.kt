@@ -17,6 +17,7 @@ import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -48,7 +49,7 @@ val networkModules = module {
             .build()
     }
 
-    single {
+    single(qualifier = named("baseRetrofit")) {
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(get<OkHttpClient>())
@@ -56,10 +57,19 @@ val networkModules = module {
             .build()
     }
 
-    single {
-        get<Retrofit>().create(AuthApiService::class.java)
+    single(qualifier = named("nutritionRetrofit")) {
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.NUTRITION_BASE_URL)
+            .client(get<OkHttpClient>())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
     }
+
     single {
-        get<Retrofit>().create(NutrientApiService::class.java)
+        get<Retrofit>(named("baseRetrofit")).create(AuthApiService::class.java)
+    }
+
+    single {
+        get<Retrofit>(named("nutritionRetrofit")).create(NutrientApiService::class.java)
     }
 }
