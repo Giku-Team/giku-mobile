@@ -2,7 +2,7 @@ package com.mobile.giku.repository.auth
 
 import com.mobile.giku.model.remote.auth.AuthApiService
 import com.mobile.giku.model.remote.auth.ForgotPasswordRequest
-import com.mobile.giku.model.remote.auth.GenericResponse
+import com.mobile.giku.model.remote.generic.GenericResponse
 import com.mobile.giku.model.remote.auth.LoginRequest
 import com.mobile.giku.model.remote.auth.LoginResponse
 import com.mobile.giku.model.remote.auth.RegisterRequest

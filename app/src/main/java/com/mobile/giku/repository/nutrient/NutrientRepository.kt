@@ -10,8 +10,10 @@ import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
-class NutrientRepository(private val apiService: NutrientApiService, private val authDataStore: AuthDataStore) {
-
+class NutrientRepository(
+    private val apiService: NutrientApiService,
+    private val authDataStore: AuthDataStore
+) {
     suspend fun getNutritionPrediction(image: MultipartBody.Part): NutritionPredictionResponse {
         try {
             val token = authDataStore.getToken().first() ?: throw IllegalStateException("Token is missing")

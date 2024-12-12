@@ -106,8 +106,11 @@ class AddChildProfileFragment : Fragment() {
     }
 
     private fun setGenderButtonState() {
+        var genderValue = -1
+
         binding.btnMaleGender.apply {
             backgroundTintList = if (isMaleSelected) {
+                genderValue = 0
                 resources.getColorStateList(R.color.md_theme_primary, null)
             } else {
                 resources.getColorStateList(R.color.md_theme_gray, null)
@@ -123,6 +126,7 @@ class AddChildProfileFragment : Fragment() {
 
         binding.btnFemaleGender.apply {
             backgroundTintList = if (isFemaleSelected) {
+                genderValue = 1
                 resources.getColorStateList(R.color.md_theme_primary, null)
             } else {
                 resources.getColorStateList(R.color.md_theme_gray, null)
