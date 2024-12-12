@@ -1,6 +1,7 @@
 package com.mobile.giku.model.remote.auth
 
 import com.mobile.giku.BuildConfig
+import com.mobile.giku.model.remote.generic.GenericResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

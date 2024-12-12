@@ -1,4 +1,4 @@
-package com.mobile.giku.model.remote.auth
+package com.mobile.giku.model.remote.generic
 
 data class GenericResponse(
     val code: Int,

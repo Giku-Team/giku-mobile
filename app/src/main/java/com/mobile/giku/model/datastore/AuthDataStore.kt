@@ -7,6 +7,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.mobile.giku.BuildConfig
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 private val Context.dataStore by preferencesDataStore(BuildConfig.AUTH_PREFERENCES)
@@ -22,11 +23,8 @@ class AuthDataStore(private val context: Context) {
         }
     }
 
-    suspend fun clearToken() {
-        context.dataStore.edit { preferences ->
-            preferences.remove(tokenKey)
-        }
-    }
+    fun getToken(): Flow<String?> = context.dataStore.data
+        .map { preferences -> preferences[tokenKey] }
 
     suspend fun setLoginStatus(status: Boolean) {
         context.dataStore.edit { preferences ->

@@ -52,12 +52,25 @@
     <string name="verification_successful">Your verification was successful. You can now proceed.</string>
     <string name="password_updated_successfully">Your password has been successfully updated.</string>
     <string name="set_a_new_passwod">Set a new passwod</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="analyze">Analyze</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="gender">Gender</string>
     <string name="select_date">Select Date</string>
+    <string name="text_nutritional_content">
+        Nutritional Content:\n- Calories (kcal): 160\n-
+        Fat (g): 2.5\n- Protein (g): 4\n- Carbohydrates (g): 31\n- Sugar (g): 8\n- Sodium (g): 0.1\n-
+        Vitamin A (%): 25\n- Vitamin D (%): 70\n- Vitamin E (%): 35\n- Vitamin K (%): 0\n-
+        Vitamin B1 (Thiamine) (%): 40\n- Vitamin B2 (Riboflavin) (%): 50\n- Vitamin B3 (Niacin) (%): 50\n-
+        Vitamin B5 (Pantothenic Acid) (%): 30\n- Vitamin B6 (Pyridoxine) (%): 95\n-
+        Vitamin B9 (Folic Acid) (%): 15\n- Vitamin B12 (Cobalamin) (%): 55\n- Vitamin C (%): 40\n-
+        Biotin (%): 60\n- Potassium (%): 60\n- Calcium (%): 65\n- Phosphorus (%): 45\n-
+        Magnesium (%): 40\n- Iron (%): 85\n- Zinc (%): 100\n- Copper (%): 0\n- Iodine (%): 30\n-
+        Selenium (%): 0\n- Choline (%): 15\n- Isoleucine (g): 0\n- Leucine (g): 0\n- Lysine (g): 0\n-
+        Methionine (g): 0\n- Phenylalanine (g): 0\n- Threonine (g): 0\n- Tryptophan (g): 0\n-
+        Valine (g): 0\n- Taurine (g): 0\n- Chloride (g): 0
+    </string>
+    <string name="text_cta_analysis">Hello, \nAnalyze your child food</string>
+    <string name="confidence">Confidence: %1$s</string>
 </resources>
