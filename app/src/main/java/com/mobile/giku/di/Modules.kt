@@ -1,6 +1,5 @@
 package com.mobile.giku.di
 
-import android.util.Log
 import com.google.gson.GsonBuilder
 import com.mobile.giku.BuildConfig
 import com.mobile.giku.model.datastore.AuthDataStore
@@ -19,7 +18,6 @@ import com.mobile.giku.viewmodel.auth.RegisterViewModel
 import com.mobile.giku.viewmodel.auth.SetNewPasswordViewModel
 import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -56,16 +54,6 @@ val networkModules = module {
     }
 
     single(qualifier = named("nutritionOkHttpClient")) {
-        /*OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val token = get<AuthDataStore>().getToken()
-                Log.d("OkHttp", "Adding Authorization Header: Bearer $token")
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-                chain.proceed(request)
-            }
-            .build()*/
         OkHttpClient.Builder()
             .retryOnConnectionFailure(true)
             .build()
