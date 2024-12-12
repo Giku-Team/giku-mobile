@@ -1,8 +1,13 @@
 package com.mobile.giku.view.ui.analysis
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import coil.load
+import coil.request.CachePolicy
+import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAnalysisDetailsBinding
 import com.mobile.giku.model.remote.nutrient.NutritionPredictionResponse
 import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
@@ -14,20 +19,42 @@ class AnalysisDetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: AnalysisViewModel by viewModel()
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentAnalysisDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.nutritionResponse.observe(viewLifecycleOwner) { response ->
-            response?.apply {
-
-                binding.tvProductName.text = this.namaMakanan
-
-                binding.tvConfidenceScore.text = "Confidence: ${this.confidenceScore}"
-
-                binding.tvNutritionalContent.text = formatNutritionDetails(this)
-
+        viewModel.selectedImageUri.observe(viewLifecycleOwner) { uri ->
+            uri?.let {
+                binding.ivProductDetails.load(it) {
+                    crossfade(true)
+                    crossfade(300)
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                    diskCachePolicy(CachePolicy.ENABLED)
+                }
             }
         }
+
+        viewModel.nutritionResponse.observe(viewLifecycleOwner) { response ->
+            response?.let {
+                updateUIWithNutritionData(it)
+            }
+        }
+    }
+
+    private fun updateUIWithNutritionData(response: NutritionPredictionResponse) {
+        binding.tvProductName.text = response.namaMakanan
+
+        binding.tvConfidenceScore.text = getString(R.string.confidence, response.confidenceScore)
+
+        binding.tvNutritionalContent.text = formatNutritionDetails(response)
     }
 
     private fun formatNutritionDetails(response: NutritionPredictionResponse): String {
@@ -75,16 +102,16 @@ class AnalysisDetailsFragment : Fragment() {
     * Kolin: ${gizi.kolin}%
 
     Asam Amino:
-    * Isoleusin: ${gizi.isoleusinG ?: "Tidak tersedia"} g
-    * Leusin: ${gizi.leusinG ?: "Tidak tersedia"} g
-    * Lisin: ${gizi.lisinG ?: "Tidak tersedia"} g
-    * Metionin: ${gizi.metioninG ?: "Tidak tersedia"} g
-    * Fenilalanin: ${gizi.fenilalaninG ?: "Tidak tersedia"} g
-    * Threonin: ${gizi.threoninG ?: "Tidak tersedia"} g
-    * Triptofan: ${gizi.triptofanG ?: "Tidak tersedia"} g
-    * Valin: ${gizi.valinG ?: "Tidak tersedia"} g
-    * Taurin: ${gizi.taurinG ?: "Tidak tersedia"} g
-    * Klorida: ${gizi.kloridaG ?: "Tidak tersedia"} g
+    * Isoleusin: ${gizi.isoleusinG} g
+    * Leusin: ${gizi.leusinG} g
+    * Lisin: ${gizi.lisinG} g
+    * Metionin: ${gizi.metioninG} g
+    * Fenilalanin: ${gizi.fenilalaninG} g
+    * Threonin: ${gizi.threoninG} g
+    * Triptofan: ${gizi.triptofanG} g
+    * Valin: ${gizi.valinG} g
+    * Taurin: ${gizi.taurinG} g
+    * Klorida: ${gizi.kloridaG} g
     """.trimIndent()
     }
 

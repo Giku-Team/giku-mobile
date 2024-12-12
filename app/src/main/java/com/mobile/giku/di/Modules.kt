@@ -1,5 +1,7 @@
 package com.mobile.giku.di
 
+import android.util.Log
+import com.google.gson.GsonBuilder
 import com.mobile.giku.BuildConfig
 import com.mobile.giku.model.datastore.AuthDataStore
 import com.mobile.giku.model.remote.auth.AuthApiService
@@ -7,6 +9,7 @@ import com.mobile.giku.model.remote.nutrient.NutrientApiService
 import com.mobile.giku.repository.auth.AuthRepository
 import com.mobile.giku.repository.nutrient.NutrientRepository
 import com.mobile.giku.utils.AuthErrorMapper
+import com.mobile.giku.utils.DecimalTypeAdapter
 import com.mobile.giku.utils.StringProvider
 import com.mobile.giku.utils.StringProviderImpl
 import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
@@ -16,6 +19,7 @@ import com.mobile.giku.viewmodel.auth.RegisterViewModel
 import com.mobile.giku.viewmodel.auth.SetNewPasswordViewModel
 import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -34,7 +38,7 @@ val appModules = module {
 
     single { AuthDataStore(get()) }
     single { AuthRepository(get(), get(), get(), get(), get(), get())}
-    single { NutrientRepository(get()) }
+    single { NutrientRepository(get(), get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
@@ -45,25 +49,48 @@ val appModules = module {
 }
 
 val networkModules = module {
-    single {
+    single(qualifier = named("baseOkHttpClient")) {
         OkHttpClient.Builder()
             .retryOnConnectionFailure(true)
             .build()
     }
 
-    single(qualifier = named("baseRetrofit")) {
-        Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .client(get<OkHttpClient>())
-            .addConverterFactory(GsonConverterFactory.create())
+    single(qualifier = named("nutritionOkHttpClient")) {
+        /*OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val token = get<AuthDataStore>().getToken()
+                Log.d("OkHttp", "Adding Authorization Header: Bearer $token")
+                val request = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer $token")
+                    .build()
+                chain.proceed(request)
+            }
+            .build()*/
+        OkHttpClient.Builder()
+            .retryOnConnectionFailure(true)
             .build()
     }
 
-    single(qualifier = named("nutritionRetrofit")) {
+    single {
+        val gson = GsonBuilder()
+            .registerTypeAdapter(Double::class.java, DecimalTypeAdapter())
+            .create()
+        gson
+    }
+
+    single(qualifier = named("baseRetrofit")) {
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(get<OkHttpClient>(named("baseOkHttpClient")))
+            .addConverterFactory(GsonConverterFactory.create(get()))
+            .build()
+    }
+
+    single(qualifier = named("baseNutritionRetrofit")) {
         Retrofit.Builder()
             .baseUrl(BuildConfig.NUTRITION_BASE_URL)
-            .client(get<OkHttpClient>())
-            .addConverterFactory(GsonConverterFactory.create())
+            .client(get<OkHttpClient>(named("nutritionOkHttpClient")))
+            .addConverterFactory(GsonConverterFactory.create(get()))
             .build()
     }
 
@@ -72,6 +99,6 @@ val networkModules = module {
     }
 
     single {
-        get<Retrofit>(named("nutritionRetrofit")).create(NutrientApiService::class.java)
+        get<Retrofit>(named("baseNutritionRetrofit")).create(NutrientApiService::class.java)
     }
 }

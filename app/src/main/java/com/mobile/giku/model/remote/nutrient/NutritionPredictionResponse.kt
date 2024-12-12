@@ -15,81 +15,81 @@ data class NutritionPredictionResponse(
 
 data class KandunganGizi(
     @SerializedName("Biotin (%)")
-    val biotin: Int,
+    val biotin: Double,
     @SerializedName("Fenilalanin (g)")
-    val fenilalaninG: Int,
+    val fenilalaninG: Double,
     @SerializedName("Fosfor (%)")
-    val fosfor: Int,
+    val fosfor: Double,
     @SerializedName("Gula (g)")
-    val gulaG: Int,
+    val gulaG: Double,
     @SerializedName("Iodium (%)")
-    val iodium: Int,
+    val iodium: Double,
     @SerializedName("Isoleusin (g)")
-    val isoleusinG: Int,
+    val isoleusinG: Double,
     @SerializedName("Kalium (%)")
-    val kalium: Int,
+    val kalium: Double,
     @SerializedName("Kalori (kcal)")
-    val kaloriKcal: Int,
+    val kaloriKcal: Double,
     @SerializedName("Kalsium (%)")
-    val kalsium: Int,
+    val kalsium: Double,
     @SerializedName("Karbohidrat (g)")
-    val karbohidratG: Int,
+    val karbohidratG: Double,
     @SerializedName("Klorida (g)")
-    val kloridaG: Int,
+    val kloridaG: Double,
     @SerializedName("Kolin (%)")
-    val kolin: Int,
+    val kolin: Double,
     @SerializedName("Lemak (g)")
-    val lemakG: String,
+    val lemakG: Double,
     @SerializedName("Leusin (g)")
-    val leusinG: Int,
+    val leusinG: Double,
     @SerializedName("Lisin (g)")
-    val lisinG: Int,
+    val lisinG: Double,
     @SerializedName("Magnesium (%)")
-    val magnesium: Int,
+    val magnesium: Double,
     @SerializedName("Metionin (g)")
-    val metioninG: Int,
+    val metioninG: Double,
     @SerializedName("Natrium (g)")
-    val natriumG: String,
+    val natriumG: Double,
     @SerializedName("Protein (g)")
-    val proteinG: Int,
+    val proteinG: Double,
     @SerializedName("Selenium (%)")
-    val selenium: Int,
+    val selenium: Double,
     @SerializedName("Taurin (g)")
-    val taurinG: Int,
+    val taurinG: Double,
     @SerializedName("Tembaga (%)")
-    val tembaga: Int,
+    val tembaga: Double,
     @SerializedName("Threonin (g)")
-    val threoninG: Int,
+    val threoninG: Double,
     @SerializedName("Triptofan (g)")
-    val triptofanG: Int,
+    val triptofanG: Double,
     @SerializedName("Valin (g)")
-    val valinG: Int,
+    val valinG: Double,
     @SerializedName("Vitamin A (%)")
-    val vitaminA: Int,
+    val vitaminA: Double,
     @SerializedName("Vitamin B12 (Kobalamin) (%)")
-    val vitaminB12Kobalamin: Int,
+    val vitaminB12Kobalamin: Double,
     @SerializedName("Vitamin B1 (Tiamin) (%)")
-    val vitaminB1Tiamin: Int,
+    val vitaminB1Tiamin: Double,
     @SerializedName("Vitamin B2 (Riboflavin) (%)")
-    val vitaminB2Riboflavin: Int,
+    val vitaminB2Riboflavin: Double,
     @SerializedName("Vitamin B3 (Niasin) (%)")
-    val vitaminB3Niasin: Int,
+    val vitaminB3Niasin: Double,
     @SerializedName("Vitamin B5 (Asam Pantotenat) (%)")
-    val vitaminB5AsamPantotenat: Int,
+    val vitaminB5AsamPantotenat: Double,
     @SerializedName("Vitamin B6 (Piridoksin) (%)")
-    val vitaminB6Piridoksin: Int,
+    val vitaminB6Piridoksin: Double,
     @SerializedName("Vitamin B9 (Asam Folat) (%)")
-    val vitaminB9AsamFolat: Int,
+    val vitaminB9AsamFolat: Double,
     @SerializedName("Vitamin C (%)")
-    val vitaminC: Int,
+    val vitaminC: Double,
     @SerializedName("Vitamin D (%)")
-    val vitaminD: Int,
+    val vitaminD: Double,
     @SerializedName("Vitamin E (%)")
-    val vitaminE: Int,
+    val vitaminE: Double,
     @SerializedName("Vitamin K (%)")
-    val vitaminK: Int,
+    val vitaminK: Double,
     @SerializedName("Zat Besi (%)")
-    val zatBesi: Int,
+    val zatBesi: Double,
     @SerializedName("Zink (%)")
-    val zink: Int
+    val zink: Double
 )

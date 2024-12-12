@@ -33,8 +33,8 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.cardLogout.setOnClickListener {
-            viewModel.logout()
             val intent = Intent(requireContext(), AuthActivity::class.java)
+            viewModel.logout()
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }

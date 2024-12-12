@@ -25,6 +25,7 @@ class AnalysisFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: AnalysisViewModel by viewModel()
     private var _selectedImageFile: File? = null
+    private var _selectedImageUri: Uri? = null
 
     private val galleryLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -85,6 +86,9 @@ class AnalysisFragment : Fragment() {
                     binding.progressIndicator.visibility = View.VISIBLE
                 }
                 is UIState.Success -> {
+                    val bundle = Bundle().apply {
+                        putString("imageUri", _selectedImageUri.toString())
+                    }
                     binding.progressIndicator.visibility = View.GONE
                     findNavController().navigate(R.id.action_analysisFragment_to_analysisDetailsFragment)
                 }
@@ -102,6 +106,7 @@ class AnalysisFragment : Fragment() {
     private fun handleSelectedImage(uri: Uri) {
         binding.previewImageView.setImageURI(uri)
         _selectedImageFile = uriToFile(uri)
+        viewModel.selectedImageUri.postValue(uri)
     }
 
     private fun uriToFile(uri: Uri): File? {

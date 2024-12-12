@@ -72,4 +72,5 @@
         Valine (g): 0\n- Taurine (g): 0\n- Chloride (g): 0
     </string>
     <string name="text_cta_analysis">Hello, \nAnalyze your child food</string>
+    <string name="confidence">Confidence: %1$s</string>
 </resources>
