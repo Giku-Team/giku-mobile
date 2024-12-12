@@ -9,6 +9,7 @@ import com.mobile.giku.repository.nutrient.NutrientRepository
 import com.mobile.giku.utils.AuthErrorMapper
 import com.mobile.giku.utils.StringProvider
 import com.mobile.giku.utils.StringProviderImpl
+import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
 import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import com.mobile.giku.viewmodel.auth.RegisterViewModel
@@ -40,6 +41,7 @@ val appModules = module {
     viewModel { VerificationCodeViewModel(get()) }
     viewModel { SetNewPasswordViewModel(get()) }
     viewModel { SharedAuthViewModel() }
+    viewModel { AnalysisViewModel(get()) }
 }
 
 val networkModules = module {

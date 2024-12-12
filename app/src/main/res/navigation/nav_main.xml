@@ -62,5 +62,13 @@
             android:name="capturedImagePath"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_analysisFragment_to_analysisDetailsFragment"
+            app:destination="@id/analysisDetailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/analysisDetailsFragment"
+        android:name="com.mobile.giku.view.ui.analysis.AnalysisDetailsFragment"
+        android:label="fragment_analysis_details"
+        tools:layout="@layout/fragment_analysis_details" />
 </navigation>

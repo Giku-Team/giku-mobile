@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mobile.giku.model.remote.nutrient.NutritionPredictionResponse
 import com.mobile.giku.repository.nutrient.NutrientRepository
 import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
@@ -17,7 +18,15 @@ class AnalysisViewModel(private val repository: NutrientRepository) : ViewModel(
     private val _analysisState = MutableLiveData<UIState>()
     val analysisState: LiveData<UIState> = _analysisState
 
+    private val _nutritionResponse = MutableLiveData<NutritionPredictionResponse>()
+    val nutritionResponse: LiveData<NutritionPredictionResponse> = _nutritionResponse
+
     fun analyze(image: File) {
+        if (!image.exists()) {
+            _analysisState.value = UIState.Error("Please select an image first")
+            return
+        }
+
         _analysisState.value = UIState.Loading
         viewModelScope.launch {
             try {
@@ -25,7 +34,7 @@ class AnalysisViewModel(private val repository: NutrientRepository) : ViewModel(
                 val imagePart = MultipartBody.Part.createFormData("image", image.name, requestBody)
 
                 val response = repository.getNutritionPrediction(imagePart)
-
+                _nutritionResponse.value = response
                 _analysisState.value = UIState.Success
 
             } catch (e: Exception) {
@@ -36,5 +45,9 @@ class AnalysisViewModel(private val repository: NutrientRepository) : ViewModel(
 
     fun resetState() {
         _analysisState.value = UIState.Idle
+    }
+
+    fun clearNutritionResponse() {
+        _nutritionResponse.value = null
     }
 }

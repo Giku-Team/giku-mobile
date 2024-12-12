@@ -15,18 +15,21 @@ import androidx.navigation.fragment.findNavController
 import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAnalysisBinding
 import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
+import com.mobile.giku.viewmodel.state.UIState
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
 
 class AnalysisFragment : Fragment() {
 
     private var _binding: FragmentAnalysisBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AnalysisViewModel by viewModel()
+    private var _selectedImageFile: File? = null
 
     private val galleryLauncher =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
-                binding.previewImageView.setImageURI(it)
+                handleSelectedImage(it)
             } ?: Toast.makeText(requireContext(), "No image selected", Toast.LENGTH_SHORT).show()
         }
 
@@ -50,11 +53,13 @@ class AnalysisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.clearNutritionResponse()
+
         val capturedImagePath = arguments?.getString("capturedImagePath")
 
         capturedImagePath?.let {
             val imageUri = Uri.parse(it)
-            binding.previewImageView.setImageURI(imageUri)
+            handleSelectedImage(imageUri)
         }
 
         binding.galleryCard.setOnClickListener {
@@ -66,8 +71,49 @@ class AnalysisFragment : Fragment() {
         }
 
         binding.analyzeButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Analysis started", Toast.LENGTH_SHORT).show()
+            val selectedFile = _selectedImageFile
+            if (selectedFile == null || !selectedFile.exists()) {
+                Toast.makeText(requireContext(), "Please select an image first", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            viewModel.analyze(selectedFile)
         }
+
+        viewModel.analysisState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UIState.Loading -> {
+                    binding.progressIndicator.visibility = View.VISIBLE
+                }
+                is UIState.Success -> {
+                    binding.progressIndicator.visibility = View.GONE
+                    findNavController().navigate(R.id.action_analysisFragment_to_analysisDetailsFragment)
+                }
+                is UIState.Error -> {
+                    binding.progressIndicator.visibility = View.GONE
+                    Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    binding.progressIndicator.visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    private fun handleSelectedImage(uri: Uri) {
+        binding.previewImageView.setImageURI(uri)
+        _selectedImageFile = uriToFile(uri)
+    }
+
+    private fun uriToFile(uri: Uri): File? {
+        val inputStream = requireContext().contentResolver.openInputStream(uri)
+        inputStream?.use { input ->
+            val file = File(requireContext().cacheDir, "selected_image.jpg")
+            file.outputStream().use { output ->
+                input.copyTo(output)
+            }
+            return file
+        }
+        return null
     }
 
     private fun checkAndRequestPermissionsForGallery() {
