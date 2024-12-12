@@ -73,4 +73,6 @@
     </string>
     <string name="text_cta_analysis">Hello, \nAnalyze your child food</string>
     <string name="confidence">Confidence: %1$s</string>
+    <string name="child_profile">Child Profile</string>
+    <string name="add_your_child">Add Your Child</string>
 </resources>

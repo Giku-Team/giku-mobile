@@ -20,7 +20,7 @@ import com.mobile.giku.viewmodel.auth.RegisterViewModel
 import com.mobile.giku.viewmodel.auth.SetNewPasswordViewModel
 import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
-import com.mobile.giku.viewmodel.child.AddChildProfileViewModel
+import com.mobile.giku.viewmodel.child.ChildProfileViewModel
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -48,7 +48,7 @@ val appModules = module {
     viewModel { SetNewPasswordViewModel(get()) }
     viewModel { SharedAuthViewModel() }
     viewModel { AnalysisViewModel(get()) }
-    viewModel { AddChildProfileViewModel(get()) }
+    viewModel { ChildProfileViewModel(get()) }
 }
 
 val networkModules = module {

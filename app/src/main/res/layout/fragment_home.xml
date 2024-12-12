@@ -60,7 +60,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            app:subtitle="Welcome, Alfred"
+            app:subtitle="@string/app_name"
             app:subtitleTextColor="@color/md_theme_onPrimary"
             android:background="?attr/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"

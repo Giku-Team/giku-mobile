@@ -12,7 +12,7 @@ import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class AddChildProfileViewModel(
+class ChildProfileViewModel(
     private val repository: ChildRepository
 ) : ViewModel() {
 
