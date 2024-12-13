@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.mobile.giku.R
 import com.mobile.giku.databinding.ItemChildProfileBinding
 import com.mobile.giku.model.remote.child.ChildData
 

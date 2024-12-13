@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mobile.giku.model.remote.nutrient.KandunganGizi
 import com.mobile.giku.model.remote.nutrient.NutritionPredictionResponse
-import com.mobile.giku.repository.nutrient.NutrientRepository
+import com.mobile.giku.repository.NutrientRepository
 import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

@@ -1,4 +1,4 @@
-package com.mobile.giku.repository.child
+package com.mobile.giku.repository
 
 import com.mobile.giku.model.datastore.AuthDataStore
 import com.mobile.giku.model.remote.child.AddChildRequest

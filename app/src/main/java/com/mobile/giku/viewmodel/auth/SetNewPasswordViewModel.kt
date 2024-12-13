@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobile.giku.repository.auth.AuthRepository
+import com.mobile.giku.repository.AuthRepository
 import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 

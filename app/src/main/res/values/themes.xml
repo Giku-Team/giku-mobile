@@ -67,6 +67,10 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="ArticleImageShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
     <style name="DefaultCardStyle">
         <item name="cardCornerRadius">20dp</item>
     </style>
