@@ -1,4 +1,4 @@
-package com.mobile.giku.repository.nutrient
+package com.mobile.giku.repository
 
 import android.util.Log
 import com.mobile.giku.model.datastore.AuthDataStore

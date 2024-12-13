@@ -55,13 +55,13 @@ class HomeFragment : Fragment() {
 
     private fun setupIconsListener() {
         binding.iconChildProfile.setOnClickListener {
-
+            findNavController().navigate(R.id.action_homeFragment_to_childProfileFragment)
         }
         binding.iconAnalysis.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_analysisFragment)
         }
         binding.iconArticles.setOnClickListener {
-
+            findNavController().navigate(R.id.action_homeFragment_to_articleFragment)
         }
     }
 

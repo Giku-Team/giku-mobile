@@ -31,6 +31,7 @@ val token: String = properties.getProperty("TOKEN") ?: "default_url"
 val forgotPassword: String = properties.getProperty("FORGOT_PASSWORD_URL") ?: "default_url"
 val validateResetCode: String = properties.getProperty("VALIDATE_RESET_CODE_URL") ?: "default_url"
 val resetPassword: String = properties.getProperty("RESET_PASSWORD_URL") ?: "default_url"
+val articlesUrl: String = properties.getProperty("ARTICLES_URL") ?: "default_url"
 
 val isSigningConfigured = System.getenv("KEYSTORE_FILE") != null &&
         System.getenv("KEYSTORE_PASSWORD") != null &&
@@ -78,6 +79,7 @@ android {
             buildConfigField("String", "NUTRITION_PREDICTION_URL", "\"$nutritionPredictionUrl\"")
             buildConfigField("String", "CHILDREN_URL", "\"$childrenUrl\"")
             buildConfigField("String", "STUNTING_RISK_URL", "\"$stuntingRiskUrl\"")
+            buildConfigField("String", "ARTICLES_URL", "\"$articlesUrl\"")
         }
         release {
             isMinifyEnabled = true
@@ -101,6 +103,7 @@ android {
             buildConfigField("String", "NUTRITION_PREDICTION_URL", "\"$nutritionPredictionUrl\"")
             buildConfigField("String", "CHILDREN_URL", "\"$childrenUrl\"")
             buildConfigField("String", "STUNTING_RISK_URL", "\"$stuntingRiskUrl\"")
+            buildConfigField("String", "ARTICLES_URL", "\"$articlesUrl\"")
         }
     }
 

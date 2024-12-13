@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="165dp"
+    android:layout_marginVertical="12dp"
+    app:cardElevation="12dp"
+    app:cardCornerRadius="20dp"
+    android:padding="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/ArticleImageShape"
+            android:id="@+id/ivArticle"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/child_profile"
+            android:src="@color/md_theme_scrim"
+            android:clipChildren="false"
+            android:elevation="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvArticleTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/article_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:textColor="@color/md_theme_scrim"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@id/tvAuthor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivArticle"
+            app:layout_constraintTop_toTopOf="@id/ivArticle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/author"
+            app:layout_goneMarginTop="4dp"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/ivArticle"
+            app:layout_constraintStart_toEndOf="@id/ivArticle"
+            app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

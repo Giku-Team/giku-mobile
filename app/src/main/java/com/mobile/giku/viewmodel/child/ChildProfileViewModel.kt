@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.mobile.giku.model.remote.child.AddChildRequest
 import com.mobile.giku.model.remote.child.GetChildrenResponse
 import com.mobile.giku.model.remote.generic.GenericResponse
-import com.mobile.giku.repository.child.ChildRepository
+import com.mobile.giku.repository.ChildRepository
 import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class AddChildProfileViewModel(
+class ChildProfileViewModel(
     private val repository: ChildRepository
 ) : ViewModel() {
 

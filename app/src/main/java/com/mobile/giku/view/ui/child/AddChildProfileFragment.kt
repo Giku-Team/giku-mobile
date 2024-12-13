@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAddChildProfileBinding
+import com.mobile.giku.viewmodel.child.ChildProfileViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -15,6 +17,7 @@ import java.util.Locale
 class AddChildProfileFragment : Fragment() {
 
     private var _binding: FragmentAddChildProfileBinding? = null
+    private val viewModel: ChildProfileViewModel by viewModels()
     private val binding get() = _binding!!
     private var isMaleSelected = false
     private var isFemaleSelected = false

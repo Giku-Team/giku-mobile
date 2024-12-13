@@ -3,24 +3,27 @@ package com.mobile.giku.di
 import com.google.gson.GsonBuilder
 import com.mobile.giku.BuildConfig
 import com.mobile.giku.model.datastore.AuthDataStore
+import com.mobile.giku.model.remote.articles.ArticlesApiService
 import com.mobile.giku.model.remote.auth.AuthApiService
 import com.mobile.giku.model.remote.child.ChildApiService
 import com.mobile.giku.model.remote.nutrient.NutrientApiService
-import com.mobile.giku.repository.auth.AuthRepository
-import com.mobile.giku.repository.child.ChildRepository
-import com.mobile.giku.repository.nutrient.NutrientRepository
+import com.mobile.giku.repository.ArticlesRepository
+import com.mobile.giku.repository.AuthRepository
+import com.mobile.giku.repository.ChildRepository
+import com.mobile.giku.repository.NutrientRepository
 import com.mobile.giku.utils.AuthErrorMapper
 import com.mobile.giku.utils.DecimalTypeAdapter
 import com.mobile.giku.utils.StringProvider
 import com.mobile.giku.utils.StringProviderImpl
 import com.mobile.giku.viewmodel.analysis.AnalysisViewModel
+import com.mobile.giku.viewmodel.articles.ArticlesViewModel
 import com.mobile.giku.viewmodel.auth.ForgotPasswordViewModel
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import com.mobile.giku.viewmodel.auth.RegisterViewModel
 import com.mobile.giku.viewmodel.auth.SetNewPasswordViewModel
 import com.mobile.giku.viewmodel.auth.SharedAuthViewModel
 import com.mobile.giku.viewmodel.auth.VerificationCodeViewModel
-import com.mobile.giku.viewmodel.child.AddChildProfileViewModel
+import com.mobile.giku.viewmodel.child.ChildProfileViewModel
 import okhttp3.OkHttpClient
 import org.koin.core.module.dsl.viewModel
 import org.koin.core.qualifier.named
@@ -38,9 +41,11 @@ val appModules = module {
     single { AuthErrorMapper.SetNewPasswordErrorMapper(get()) }
 
     single { AuthDataStore(get()) }
-    single { AuthRepository(get(), get(), get(), get(), get(), get())}
+    single { AuthRepository(get(), get(), get(), get(), get(), get()) }
     single { NutrientRepository(get(), get()) }
     single { ChildRepository(get(), get()) }
+    single { ArticlesRepository(get()) }
+
     viewModel { LoginViewModel(get(), get()) }
     viewModel { RegisterViewModel(get()) }
     viewModel { ForgotPasswordViewModel(get()) }
@@ -48,7 +53,8 @@ val appModules = module {
     viewModel { SetNewPasswordViewModel(get()) }
     viewModel { SharedAuthViewModel() }
     viewModel { AnalysisViewModel(get()) }
-    viewModel { AddChildProfileViewModel(get()) }
+    viewModel { ChildProfileViewModel(get()) }
+    viewModel { ArticlesViewModel(get()) }
 }
 
 val networkModules = module {
@@ -97,5 +103,9 @@ val networkModules = module {
 
     single {
         get<Retrofit>(named("baseRetrofit")).create(ChildApiService::class.java)
+    }
+
+    single {
+        get<Retrofit>(named("baseRetrofit")).create(ArticlesApiService::class.java)
     }
 }

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mobile.giku.model.datastore.AuthDataStore
-import com.mobile.giku.repository.auth.AuthRepository
+import com.mobile.giku.repository.AuthRepository
 import com.mobile.giku.viewmodel.state.UIState
 import kotlinx.coroutines.launch
 
@@ -24,9 +24,9 @@ class LoginViewModel(
         viewModelScope.launch {
             repository.login(email, password)
                 .onSuccess { response ->
+                    _loginState.value = UIState.Success
                     authDataStore.setLoginStatus(true)
                     authDataStore.saveToken(response.token)
-                    _loginState.value = UIState.Success
                 }
                 .onFailure { throwable ->
                     _loginState.value = UIState.Error(throwable.message ?: "Unknown error occurred")

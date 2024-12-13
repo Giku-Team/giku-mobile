@@ -1,4 +1,4 @@
-package com.mobile.giku.repository.auth
+package com.mobile.giku.repository
 
 import com.mobile.giku.model.remote.auth.AuthApiService
 import com.mobile.giku.model.remote.auth.ForgotPasswordRequest
