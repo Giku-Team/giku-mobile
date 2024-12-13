@@ -102,7 +102,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Languages"
+                android:text="@string/languages"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/md_theme_scrim"
@@ -155,7 +155,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout"
+                android:text="@string/logout"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/md_theme_scrim"
@@ -183,7 +183,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:trackColor="@color/md_theme_secondaryFixedDim"
         app:indicatorColor="@color/md_theme_primary"
         app:indicatorSize="50dp"

@@ -103,4 +103,6 @@
     <string name="news_image">Gambar Berita</string>
     <string name="parenting_and_home_environment_influence_children_s_exercise_and_eating_habits">Pengasuhan dan lingkungan rumah mempengaruhi kebiasaan olahraga dan makan anak-anak</string>
     <string name="news_photo">Foto Berita</string>
+    <string name="languages">Bahasa</string>
+    <string name="logout">Keluar</string>
 </resources>

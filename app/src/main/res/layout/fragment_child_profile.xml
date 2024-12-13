@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
-            tools:listitem="@layout/item_child_settings"
+            tools:listitem="@layout/item_child_profile"
             tools:itemCount="2"
             app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
             app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd"

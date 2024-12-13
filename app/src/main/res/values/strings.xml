@@ -104,4 +104,6 @@
     <string name="news_image">News Image</string>
     <string name="parenting_and_home_environment_influence_children_s_exercise_and_eating_habits">Parenting and home environment influence children\'s exercise and eating habits</string>
     <string name="news_photo">News Photo</string>
+    <string name="languages">Languages</string>
+    <string name="logout">Logout</string>
 </resources>
