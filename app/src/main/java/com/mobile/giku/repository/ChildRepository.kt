@@ -35,8 +35,9 @@ class ChildRepository(
             bloodType = addChildRequest.bloodType.toMultipartBodyPart("bloodType"),
             fatherHeight = addChildRequest.fatherHeight.toMultipartBodyPart("fatherHeight"),
             motherHeight = addChildRequest.motherHeight.toMultipartBodyPart("motherHeight"),
-            allergies = addChildRequest.allergies.toMultipartBodyPart("allergies"),
-            photo = addChildRequest.photo?.toMultipartBodyPart("photo") ?: MultipartBody.Part.createFormData("photo", "")
+            allergies = addChildRequest.allergies!!.toMultipartBodyPart("allergies"),
+            photo = addChildRequest.photo?.toMultipartBodyPart("photo")
+                ?: MultipartBody.Part.createFormData("photo", "")
         )
     }
 

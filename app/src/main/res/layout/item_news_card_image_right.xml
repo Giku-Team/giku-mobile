@@ -24,7 +24,7 @@
                 android:id="@+id/tvNewsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Parenting and home environment influence children's exercise and eating habits"
+                android:text="@string/parenting_and_home_environment_influence_children_s_exercise_and_eating_habits"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/md_theme_onPrimary"
@@ -42,7 +42,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="38dp"
                 app:cornerRadius="20dp"
-                android:text="Find More"
+                android:text="@string/find_more"
                 android:backgroundTint="@color/md_theme_onPrimary"
                 android:textColor="@color/md_theme_primary"
                 android:textSize="14sp"
@@ -64,7 +64,7 @@
         android:layout_alignEnd="@id/newsItemCard"
         android:scaleType="fitCenter"
         android:layout_marginEnd="-12dp"
-        android:contentDescription="News Photo"
+        android:contentDescription="@string/news_photo"
         android:src="@drawable/img_news_one"
         android:elevation="8dp" />
 

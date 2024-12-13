@@ -1,23 +1,33 @@
 package com.mobile.giku.view.ui.child
 
 import android.app.DatePickerDialog
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentAddChildProfileBinding
+import com.mobile.giku.model.remote.child.AddChildRequest
+import com.mobile.giku.model.remote.child.Allergy
 import com.mobile.giku.viewmodel.child.ChildProfileViewModel
+import com.mobile.giku.viewmodel.state.UIState
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.io.File
+import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class AddChildProfileFragment : Fragment() {
 
     private var _binding: FragmentAddChildProfileBinding? = null
-    private val viewModel: ChildProfileViewModel by viewModels()
+    private val viewModel: ChildProfileViewModel by viewModel()
     private val binding get() = _binding!!
     private var isMaleSelected = false
     private var isFemaleSelected = false
@@ -25,6 +35,27 @@ class AddChildProfileFragment : Fragment() {
     private var isBloodTypeBSelected = false
     private var isBloodTypeABSelected = false
     private var isBloodTypeOSelected = false
+    private var selectedBloodType: String? = null
+    private var selectedImageUri: Uri? = null
+    private var photoFile: File? = null
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            try {
+                val inputStream = requireContext().contentResolver.openInputStream(it)
+                photoFile = createTempImageFile()
+                inputStream?.use { input ->
+                    FileOutputStream(photoFile).use { output ->
+                        input.copyTo(output)
+                    }
+                }
+                // Update the preview
+                binding.previewImageView.setImageURI(Uri.fromFile(photoFile))
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Error processing image: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,13 +69,20 @@ class AddChildProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.etDateOfBirth.setOnClickListener {
-            showDatePicker()
-        }
+        setupUI()
+        observeViewModelStates()
+        observeUserId()
+    }
 
-        setGenderButtonState()
-        setBloodTypeButtonState()
+    private fun setupUI() {
+        binding.etDateOfBirth.setOnClickListener { showDatePicker() }
+        setupGenderSelection()
+        setupBloodTypeSelection()
+        setupPhotoUpload()
+        binding.btnSubmit.setOnClickListener { submitChildProfile() }
+    }
 
+    private fun setupGenderSelection() {
         binding.btnMaleGender.setOnClickListener {
             isMaleSelected = true
             isFemaleSelected = false
@@ -56,29 +94,143 @@ class AddChildProfileFragment : Fragment() {
             isFemaleSelected = true
             setGenderButtonState()
         }
+    }
 
-        binding.btnBloodTypeA.setOnClickListener {
-            resetBloodTypeStates()
-            isBloodTypeASelected = true
-            setBloodTypeButtonState()
+    private fun setupBloodTypeSelection() {
+        binding.btnBloodTypeA.setOnClickListener { selectBloodType("A") }
+        binding.btnBloodTypeB.setOnClickListener { selectBloodType("B") }
+        binding.btnBloodTypeAB.setOnClickListener { selectBloodType("AB") }
+        binding.btnBloodTypeO.setOnClickListener { selectBloodType("O") }
+    }
+
+    private fun selectBloodType(type: String) {
+        resetBloodTypeStates()
+        when (type) {
+            "A" -> isBloodTypeASelected = true
+            "B" -> isBloodTypeBSelected = true
+            "AB" -> isBloodTypeABSelected = true
+            "O" -> isBloodTypeOSelected = true
+        }
+        selectedBloodType = type
+        setBloodTypeButtonState()
+    }
+
+    private fun setupPhotoUpload() {
+        binding.btnUploadPhoto.setOnClickListener {
+            getContent.launch("image/*")
+        }
+    }
+
+    private fun submitChildProfile() {
+        val name = binding.etName.text.toString().trim()
+        val dateOfBirth = binding.etDateOfBirth.text.toString().trim()
+        val weight = binding.etWeight.text.toString().toDoubleOrNull()
+        val height = binding.etHeight.text.toString().toDoubleOrNull()
+        val fatherHeight = binding.etFatherHeight.text.toString().toDoubleOrNull()
+        val motherHeight = binding.etMotherHeight.text.toString().toDoubleOrNull()
+        val allergiesText = binding.etAllergies.text.toString().trim()
+
+        if (validateInputs(name, dateOfBirth, weight, height, fatherHeight, motherHeight)) {
+            val allergies = allergiesText.split(",")
+                .map { it.trim() }
+                .filter { it.isNotEmpty() }
+                .map { Allergy(it, "Unknown", "Unknown") }
+
+            val childRequest = AddChildRequest(
+                name = name,
+                userId = viewModel.userId.value.toString(),
+                dateOfBirth = dateOfBirth,
+                gender = if (isMaleSelected) 0 else 1,
+                weight = weight ?: 0.0,
+                height = height ?: 0.0,
+                bloodType = selectedBloodType ?: "",
+                fatherHeight = fatherHeight ?: 0.0,
+                motherHeight = motherHeight ?: 0.0,
+                allergies = null,
+                photo = photoFile?.absolutePath
+            )
+
+            viewModel.addChildProfile(childRequest)
+        }
+    }
+
+    private fun validateInputs(
+        name: String,
+        dateOfBirth: String,
+        weight: Double?,
+        height: Double?,
+        fatherHeight: Double?,
+        motherHeight: Double?
+    ): Boolean {
+        var isValid = true
+
+        if (name.isEmpty()) {
+            binding.etName.error = "Name is required"
+            isValid = false
         }
 
-        binding.btnBloodTypeB.setOnClickListener {
-            resetBloodTypeStates()
-            isBloodTypeBSelected = true
-            setBloodTypeButtonState()
+        if (dateOfBirth.isEmpty()) {
+            binding.etDateOfBirth.error = "Date of Birth is required"
+            isValid = false
         }
 
-        binding.btnBloodTypeAB.setOnClickListener {
-            resetBloodTypeStates()
-            isBloodTypeABSelected = true
-            setBloodTypeButtonState()
+        if (weight == null) {
+            binding.etWeight.error = "Weight is required"
+            isValid = false
         }
 
-        binding.btnBloodTypeO.setOnClickListener {
-            resetBloodTypeStates()
-            isBloodTypeOSelected = true
-            setBloodTypeButtonState()
+        if (height == null) {
+            binding.etHeight.error = "Height is required"
+            isValid = false
+        }
+
+        if (fatherHeight == null) {
+            binding.etFatherHeight.error = "Father's Height is required"
+            isValid = false
+        }
+
+        if (motherHeight == null) {
+            binding.etMotherHeight.error = "Mother's Height is required"
+            isValid = false
+        }
+
+        if (!isMaleSelected && !isFemaleSelected) {
+            Toast.makeText(requireContext(), "Please select gender", Toast.LENGTH_SHORT).show()
+            isValid = false
+        }
+
+        if (selectedBloodType.isNullOrEmpty()) {
+            Toast.makeText(requireContext(), "Please select blood type", Toast.LENGTH_SHORT).show()
+            isValid = false
+        }
+
+        return isValid
+    }
+
+    private fun observeViewModelStates() {
+        viewModel.addChildState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UIState.Loading -> {
+                    binding.btnSubmit.isEnabled = false
+                }
+
+                is UIState.Success -> {
+                    Toast.makeText(
+                        requireContext(),
+                        "Child profile added successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    binding.btnSubmit.isEnabled = true
+                    findNavController().navigate(R.id.action_addChildProfileFragment_to_childProfileFragment)
+                }
+
+                is UIState.Error -> {
+                    Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                    binding.btnSubmit.isEnabled = true
+                }
+
+                UIState.Idle -> TODO()
+            }
         }
     }
 
@@ -109,37 +261,29 @@ class AddChildProfileFragment : Fragment() {
     }
 
     private fun setGenderButtonState() {
-        var genderValue = -1
-
         binding.btnMaleGender.apply {
-            backgroundTintList = if (isMaleSelected) {
-                genderValue = 0
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
-            }
+            backgroundTintList = resources.getColorStateList(
+                if (isMaleSelected) R.color.md_theme_primary else R.color.md_theme_gray,
+                null
+            )
             setTextColor(
-                if (isMaleSelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
+                resources.getColor(
+                    if (isMaleSelected) R.color.md_theme_onPrimary else R.color.md_theme_scrim,
+                    null
+                )
             )
         }
 
         binding.btnFemaleGender.apply {
-            backgroundTintList = if (isFemaleSelected) {
-                genderValue = 1
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
-            }
+            backgroundTintList = resources.getColorStateList(
+                if (isFemaleSelected) R.color.md_theme_primary else R.color.md_theme_gray,
+                null
+            )
             setTextColor(
-                if (isFemaleSelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
+                resources.getColor(
+                    if (isFemaleSelected) R.color.md_theme_onPrimary else R.color.md_theme_scrim,
+                    null
+                )
             )
         }
     }
@@ -152,65 +296,45 @@ class AddChildProfileFragment : Fragment() {
     }
 
     private fun setBloodTypeButtonState() {
-        binding.btnBloodTypeA.apply {
-            backgroundTintList = if (isBloodTypeASelected) {
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
-            }
-            setTextColor(
-                if (isBloodTypeASelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
-            )
-        }
+        val buttons = listOf(
+            binding.btnBloodTypeA to isBloodTypeASelected,
+            binding.btnBloodTypeB to isBloodTypeBSelected,
+            binding.btnBloodTypeAB to isBloodTypeABSelected,
+            binding.btnBloodTypeO to isBloodTypeOSelected
+        )
 
-        binding.btnBloodTypeB.apply {
-            backgroundTintList = if (isBloodTypeBSelected) {
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
+        buttons.forEach { (button, isSelected) ->
+            button.apply {
+                backgroundTintList = resources.getColorStateList(
+                    if (isSelected) R.color.md_theme_primary else R.color.md_theme_gray,
+                    null
+                )
+                setTextColor(
+                    resources.getColor(
+                        if (isSelected) R.color.md_theme_onPrimary else R.color.md_theme_scrim,
+                        null
+                    )
+                )
             }
-            setTextColor(
-                if (isBloodTypeBSelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
-            )
         }
+    }
 
-        binding.btnBloodTypeAB.apply {
-            backgroundTintList = if (isBloodTypeABSelected) {
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
+    private fun observeUserId() {
+        viewModel.userId.observe(viewLifecycleOwner) { userId ->
+            if (userId == null) {
+                // Handle the case when userId is null
             }
-            setTextColor(
-                if (isBloodTypeABSelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
-            )
         }
+    }
 
-        binding.btnBloodTypeO.apply {
-            backgroundTintList = if (isBloodTypeOSelected) {
-                resources.getColorStateList(R.color.md_theme_primary, null)
-            } else {
-                resources.getColorStateList(R.color.md_theme_gray, null)
-            }
-            setTextColor(
-                if (isBloodTypeOSelected) {
-                    resources.getColor(R.color.md_theme_onPrimary, null)
-                } else {
-                    resources.getColor(R.color.md_theme_scrim, null)
-                }
-            )
-        }
+    private fun createTempImageFile(): File {
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val imageFileName = "JPEG_${timeStamp}_"
+        return File.createTempFile(
+            imageFileName,
+            ".jpg",
+            requireContext().cacheDir
+        )
     }
 
     override fun onDestroyView() {

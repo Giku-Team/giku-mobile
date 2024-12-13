@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.auth0.android.jwt.JWT
 import com.mobile.giku.BuildConfig
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -42,4 +43,10 @@ class AuthDataStore(private val context: Context) {
             preferences.clear()
         }
     }
+
+    fun getUserId(): Flow<String?> = context.dataStore.data
+        .map { preferences ->
+            val token = preferences[tokenKey]
+            token?.let { JWT(it).getClaim("userId").asString() }
+        }
 }

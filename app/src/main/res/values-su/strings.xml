@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Giku</string>
+    <string name="login">Asup</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Lebetkeun email anjeun</string>
+    <string name="password">Kata Sandi</string>
+    <string name="enter_your_password">Lebetkeun kata sandi anjeun</string>
+    <string name="forgot_password">Lalikeun kata sandi?</string>
+    <string name="don_t_have_an_account">Teu gaduh akun?&#160;</string>
+    <string name="register">Daftar</string>
+    <string name="already_have_an_account">Geus gaduh akun?&#160;</string>
+    <string name="match_your_password">Cocogkeun kata sandi anjeun</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="enter_your_name">Lebetkeun nami anjeun</string>
+    <string name="name">Nami</string>
+    <string name="please_enter_your_email_to_reset_the_password">Mangga lebetkeun email pikeun nyetel ulang kata sandi</string>
+    <string name="continue_text">Teruskeun</string>
+    <string name="forgot_password_title">Lalikeun Kata Sandi</string>
+    <string name="verification_code">Kode Verifikasi</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="name_is_required">Nami kedah dieusian</string>
+    <string name="name_must_be_at_least_3_characters">Nami kedah sahenteuna 3 karakter</string>
+    <string name="email_is_required">Email kedah dieusian</string>
+    <string name="enter_a_valid_email_address">Lebetkeun alamat email anu leres</string>
+    <string name="password_is_required">Kata sandi kedah dieusian</string>
+    <string name="password_must_be_at_least_8_characters">Kata sandi kedah sahenteuna 8 karakter</string>
+    <string name="password_must_contain_at_least_one_uppercase_letter">Kata sandi kedah ngandung sahenteuna hiji hurup kapital</string>
+    <string name="password_must_contain_at_least_one_lowercase_letter">Kata sandi kedah ngandung sahenteuna hiji hurup leutik</string>
+    <string name="password_must_contain_at_least_one_digit">Kata sandi kedah ngandung sahenteuna hiji angka</string>
+    <string name="password_must_contain_at_least_one_special_character"><![CDATA[Kata sandi kedah ngandung sahenteuna hiji karakter khusus (@#$%^&+=)]]></string>
+    <string name="confirm_your_password">Konfirmasi kata sandi anjeun</string>
+    <string name="passwords_do_not_match">Kata sandi henteu cocog</string>
+    <string name="login_success">Asup sukses</string>
+    <string name="child_profile_input_form">Formulir Input Profil Anak</string>
+    <string name="error_empty_email">Mangga lebetkeun email anjeun pikeun neruskeun.</string>
+    <string name="success_forgot_password">Kode verifikasi parantos dikirim ka email anjeun.</string>
+    <string name="password_reset_success">Reset kata sandi sukses</string>
+    <string name="error_user_already_exists">Pangguna parantos aya. Mangga anggo email sanés.</string>
+    <string name="error_request_timeout">Waktos habis. Mangga periksa sambungan jaringan sareng cobian deui.</string>
+    <string name="error_server">Kasalahan server. Mangga cobian deui engké.</string>
+    <string name="error_unknown">Kasalahan anu teu dipikanyaho. Mangga cobian deui.</string>
+    <string name="invalid_credentials">Kredensial salah. Mangga periksa email sareng kata sandi anjeun.</string>
+    <string name="error_user_not_found">Akun henteu kapendak nganggo email anu disayogikeun.</string>
+    <string name="verification_required">Verifikasi diperyogikeun sateuacan nyetel ulang kata sandi.</string>
+    <string name="reset_time_expired">Waktos reset parantos kadaluarsa. Mangga menta pranala anyar.</string>
+    <string name="verification_code_expired">Kode verifikasi parantos kadaluarsa. Mangga menta kode anyar.</string>
+    <string name="invalid_verification_code">Kode verifikasi salah. Mangga periksa sareng cobian deui.</string>
+    <string name="error_internal_server_error">Kasalahan server internal. Mangga cobian deui engké.</string>
+    <string name="successful_login">Anjeun parantos suksés asup.</string>
+    <string name="user_registered_successfully">Akun anjeun parantos hasil didaptarkeun. Anjeun ayeuna tiasa asup.</string>
+    <string name="verification_code_sent_to_email">Kode verifikasi parantos dikirim ka email anjeun. Mangga periksa kotak masuk.</string>
+    <string name="verification_successful">Verifikasi anjeun suksés. Anjeun tiasa teraskeun.</string>
+    <string name="password_updated_successfully">Kata sandi anjeun parantos suksés diénggalan.</string>
+    <string name="set_a_new_passwod">Atur kata sandi anyar</string>
+    <string name="analyze">Analisa</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="date_of_birth">Tanggal Lahir</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="select_date">Pilih Tanggal</string>
+    <string name="text_nutritional_content">
+        Kontén Gizi:\n- Kalori (kcal): 160\n-
+        Lemak (g): 2.5\n- Protein (g): 4\n- Karbohidrat (g): 31\n- Gula (g): 8\n- Natrium (g): 0.1\n-
+        Vitamin A (%): 25\n- Vitamin D (%): 70\n- Vitamin E (%): 35\n- Vitamin K (%): 0\n-
+        Vitamin B1 (Thiamine) (%): 40\n- Vitamin B2 (Riboflavin) (%): 50\n- Vitamin B3 (Niacin) (%): 50\n-
+        Vitamin B5 (Pantothenic Acid) (%): 30\n- Vitamin B6 (Pyridoxine) (%): 95\n-
+        Vitamin B9 (Folic Acid) (%): 15\n- Vitamin B12 (Cobalamin) (%): 55\n- Vitamin C (%): 40\n-
+        Biotin (%): 60\n- Kalium (%): 60\n- Kalsium (%): 65\n- Fosfor (%): 45\n-
+        Magnesium (%): 40\n- Zat Besi (%): 85\n- Seng (%): 100\n- Tembaga (%): 0\n- Yodium (%): 30\n-
+        Selenium (%): 0\n- Kolin (%): 15\n- Isoleusin (g): 0\n- Leusin (g): 0\n- Lisin (g): 0\n-
+        Metionin (g): 0\n- Fenilalanin (g): 0\n- Treonin (g): 0\n- Triptofan (g): 0\n-
+        Valin (g): 0\n- Taurin (g): 0\n- Klorida (g): 0
+    </string>
+    <string name="text_cta_analysis">Halo, \nAnalisa panganan anak anjeun</string>
+    <string name="confidence">Kapercayaan: %1$s</string>
+    <string name="child_profile">Profil Anak</string>
+    <string name="add_your_child">Tambahkeun Anak Anjeun</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="author">Panulis</string>
+    <string name="article_title">Judul Artikel</string>
+    <string name="hello_nthis_is_the_result_of_your_analysis">Halo, \nIeu hasil analisis anjeun</string>
+    <string name="confidence_score_0_87">Skor Kapercayaan: 0.87</string>
+    <string name="product_name">Nami Produk</string>
+    <string name="feature_article">Artikel Fitur</string>
+    <string name="article_title_with_long_text">Judul Artikel Kalayan Téks Lila</string>
+    <string name="rotate_button">Tombol Puter</string>
+    <string name="capture_button">Tombol Jepret</string>
+    <string name="scroll_the_screen">Gulung layar</string>
+    <string name="hello_ntap_below_to_view_your_child_s_summary">Halo,\nTap di handap pikeun ningali ringkesan anak anjeun</string>
+    <string name="december_2024">Desember, 2024</string>
+    <string name="recent_analysis">Analisis Anyar</string>
+    <string name="analysis">Analisis</string>
+    <string name="articles">Artikel</string>
+    <string name="december_08_2024">Desember 08, 2024</string>
+    <string name="other_information">Informasi Séjén</string>
+    <string name="enter_the_pin">Lebetkeun PIN</string>
+    <string name="child_age">Umur Anak</string>
+    <string name="child_name">Nami Anak</string>
+    <string name="day">Dinten</string>
+    <string name="_12">12</string>
+    <string name="how_home_food_availability_affects_young_children_s_nutrient_intake">Kumaha kasediaan pangan di bumi mangaruhan asupan gizi barudak</string>
+    <string name="find_more">Panggihan Luwih Jauh</string>
+    <string name="news_image">Gambar Warta</string>
+    <string name="parenting_and_home_environment_influence_children_s_exercise_and_eating_habits">Pengaruh asuhanan sareng lingkungan bumi kana kabiasaan olahraga sareng dahar barudak</string>
+    <string name="news_photo">Foto Warta</string>
+</resources>

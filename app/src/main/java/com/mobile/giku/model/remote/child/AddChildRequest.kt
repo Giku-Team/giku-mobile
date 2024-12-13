@@ -12,6 +12,6 @@ data class AddChildRequest(
     @SerializedName("bloodType") val bloodType: String,
     @SerializedName("fatherHeight") val fatherHeight: Double,
     @SerializedName("motherHeight") val motherHeight: Double,
-    @SerializedName("allergies") val allergies: List<Allergy>,
+    @SerializedName("allergies") val allergies: List<Allergy>?,
     @SerializedName("photo") val photo: String? = null
 )

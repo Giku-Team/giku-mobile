@@ -32,6 +32,7 @@ val forgotPassword: String = properties.getProperty("FORGOT_PASSWORD_URL") ?: "d
 val validateResetCode: String = properties.getProperty("VALIDATE_RESET_CODE_URL") ?: "default_url"
 val resetPassword: String = properties.getProperty("RESET_PASSWORD_URL") ?: "default_url"
 val articlesUrl: String = properties.getProperty("ARTICLES_URL") ?: "default_url"
+val userUrl: String = properties.getProperty("USER_URL") ?: "derault_url"
 
 val isSigningConfigured = System.getenv("KEYSTORE_FILE") != null &&
         System.getenv("KEYSTORE_PASSWORD") != null &&
@@ -80,6 +81,7 @@ android {
             buildConfigField("String", "CHILDREN_URL", "\"$childrenUrl\"")
             buildConfigField("String", "STUNTING_RISK_URL", "\"$stuntingRiskUrl\"")
             buildConfigField("String", "ARTICLES_URL", "\"$articlesUrl\"")
+            buildConfigField("String", "USER_URL", "\"$userUrl\"")
         }
         release {
             isMinifyEnabled = true
@@ -104,6 +106,7 @@ android {
             buildConfigField("String", "CHILDREN_URL", "\"$childrenUrl\"")
             buildConfigField("String", "STUNTING_RISK_URL", "\"$stuntingRiskUrl\"")
             buildConfigField("String", "ARTICLES_URL", "\"$articlesUrl\"")
+            buildConfigField("String", "USER_URL", "\"$userUrl\"")
         }
     }
 
@@ -153,6 +156,7 @@ dependencies {
     implementation(libs.androidx.camera.view)
     implementation(libs.androidx.camera.extensions)
     implementation(libs.androidx.camera.camera2)
+    implementation("com.auth0.android:jwtdecode:2.0.2")
 }
 
 tasks.register("printVersionName") {

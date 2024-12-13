@@ -6,19 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
-import com.mobile.giku.R
 import com.mobile.giku.databinding.FragmentProfileBinding
 import com.mobile.giku.view.ui.auth.AuthActivity
 import com.mobile.giku.viewmodel.auth.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProfileFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: LoginViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +31,7 @@ class ProfileFragment : Fragment() {
 
         binding.cardLogout.setOnClickListener {
             val intent = Intent(requireContext(), AuthActivity::class.java)
-            viewModel.logout()
+            loginViewModel.logout()
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }

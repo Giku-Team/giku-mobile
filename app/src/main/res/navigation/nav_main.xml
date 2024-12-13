@@ -43,9 +43,9 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.mobile.giku.view.ui.main.ProfileFragment"
+        android:name="com.mobile.giku.view.ui.main.SettingsFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_profileFragment_to_cameraFragment"
             app:destination="@id/cameraFragment" />

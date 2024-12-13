@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">Giku</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Masukkan email Anda</string>
+    <string name="password">Kata Sandi</string>
+    <string name="enter_your_password">Masukkan kata sandi Anda</string>
+    <string name="forgot_password">Lupa kata sandi?</string>
+    <string name="don_t_have_an_account">Belum punya akun?&#160;</string>
+    <string name="register">Daftar</string>
+    <string name="already_have_an_account">Sudah punya akun?&#160;</string>
+    <string name="match_your_password">Cocokkan kata sandi Anda</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="enter_your_name">Masukkan nama Anda</string>
+    <string name="name">Nama</string>
+    <string name="please_enter_your_email_to_reset_the_password">Masukkan email Anda untuk mereset kata sandi</string>
+    <string name="continue_text">Lanjut</string>
+    <string name="forgot_password_title">Lupa kata sandi</string>
+    <string name="verification_code">Kode Verifikasi</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="name_is_required">Nama wajib diisi</string>
+    <string name="name_must_be_at_least_3_characters">Nama harus minimal 3 karakter</string>
+    <string name="email_is_required">Email wajib diisi</string>
+    <string name="enter_a_valid_email_address">Masukkan alamat email yang valid</string>
+    <string name="password_is_required">Kata sandi wajib diisi</string>
+    <string name="password_must_be_at_least_8_characters">Kata sandi harus minimal 8 karakter</string>
+    <string name="password_must_contain_at_least_one_uppercase_letter">Kata sandi harus mengandung setidaknya satu huruf kapital</string>
+    <string name="password_must_contain_at_least_one_lowercase_letter">Kata sandi harus mengandung setidaknya satu huruf kecil</string>
+    <string name="password_must_contain_at_least_one_digit">Kata sandi harus mengandung setidaknya satu angka</string>
+    <string name="password_must_contain_at_least_one_special_character"><![CDATA[Kata sandi harus mengandung setidaknya satu karakter khusus (@#$%^&+=)]]></string>
+    <string name="confirm_your_password">Konfirmasi kata sandi Anda</string>
+    <string name="passwords_do_not_match">Kata sandi tidak cocok</string>
+    <string name="login_success">Berhasil masuk</string>
+    <string name="child_profile_input_form">Formulir Input Profil Anak</string>
+    <string name="error_empty_email">Harap masukkan email Anda untuk melanjutkan.</string>
+    <string name="success_forgot_password">Kode verifikasi telah dikirim ke email Anda.</string>
+    <string name="password_reset_success">Reset kata sandi berhasil</string>
+    <string name="error_user_already_exists">Pengguna sudah ada. Silakan gunakan email lain.</string>
+    <string name="error_request_timeout">Waktu habis. Periksa koneksi jaringan Anda dan coba lagi.</string>
+    <string name="error_server">Terjadi kesalahan server. Silakan coba lagi nanti.</string>
+    <string name="error_unknown">Terjadi kesalahan yang tidak diketahui. Silakan coba lagi.</string>
+    <string name="invalid_credentials">Kredensial tidak valid. Periksa email dan kata sandi Anda.</string>
+    <string name="error_user_not_found">Akun tidak ditemukan dengan email yang diberikan.</string>
+    <string name="verification_required">Verifikasi diperlukan sebelum mereset kata sandi.</string>
+    <string name="reset_time_expired">Waktu reset telah kedaluwarsa. Silakan minta tautan baru.</string>
+    <string name="verification_code_expired">Kode verifikasi telah kedaluwarsa. Silakan minta kode baru.</string>
+    <string name="invalid_verification_code">Kode verifikasi tidak valid. Periksa dan coba lagi.</string>
+    <string name="error_internal_server_error">Kesalahan internal server. Silakan coba lagi nanti.</string>
+    <string name="successful_login">Anda telah berhasil masuk.</string>
+    <string name="user_registered_successfully">Akun Anda telah berhasil dibuat. Anda dapat masuk sekarang.</string>
+    <string name="verification_code_sent_to_email">Kode verifikasi telah dikirim ke email Anda. Periksa kotak masuk Anda.</string>
+    <string name="verification_successful">Verifikasi Anda berhasil. Anda dapat melanjutkan.</string>
+    <string name="password_updated_successfully">Kata sandi Anda berhasil diperbarui.</string>
+    <string name="set_a_new_passwod">Atur kata sandi baru</string>
+    <string name="analyze">Analisis</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="date_of_birth">Tanggal Lahir</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="select_date">Pilih Tanggal</string>
+    <string name="text_nutritional_content">
+        Kandungan Nutrisi:\n- Kalori (kcal): 160\n-
+        Lemak (g): 2.5\n- Protein (g): 4\n- Karbohidrat (g): 31\n- Gula (g): 8\n- Natrium (g): 0.1\n-
+        Vitamin A (%): 25\n- Vitamin D (%): 70\n- Vitamin E (%): 35\n- Vitamin K (%): 0\n-
+        Vitamin B1 (Thiamin) (%): 40\n- Vitamin B2 (Riboflavin) (%): 50\n- Vitamin B3 (Niacin) (%): 50\n-
+        Vitamin B5 (Asam Pantotenat) (%): 30\n- Vitamin B6 (Piridoksin) (%): 95\n-
+        Vitamin B9 (Asam Folat) (%): 15\n- Vitamin B12 (Kobalamin) (%): 55\n- Vitamin C (%): 40\n-
+        Biotin (%): 60\n- Kalium (%): 60\n- Kalsium (%): 65\n- Fosfor (%): 45\n-
+        Magnesium (%): 40\n- Zat Besi (%): 85\n- Zinc (%): 100\n- Tembaga (%): 0\n- Yodium (%): 30\n-
+        Selenium (%): 0\n- Kolin (%): 15\n- Isoleusin (g): 0\n- Leusin (g): 0\n- Lisin (g): 0\n-
+        Metionin (g): 0\n- Fenilalanin (g): 0\n- Treonin (g): 0\n- Triptofan (g): 0\n-
+        Valin (g): 0\n- Taurin (g): 0\n- Klorida (g): 0
+    </string>
+    <string name="text_cta_analysis">Halo, \nAnalisis makanan anak Anda</string>
+    <string name="confidence">Kepercayaan: %1$s</string>
+    <string name="child_profile">Profil Anak</string>
+    <string name="add_your_child">Tambah Anak Anda</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="author">Penulis</string>
+    <string name="article_title">Judul Artikel</string>
+    <string name="hello_nthis_is_the_result_of_your_analysis">Halo, \nIni adalah hasil analisis Anda</string>
+    <string name="confidence_score_0_87">Skor Kepercayaan: 0.87</string>
+    <string name="product_name">Nama Produk</string>
+    <string name="feature_article">Artikel Fitur</string>
+    <string name="article_title_with_long_text">Judul Artikel dengan Teks Panjang</string>
+    <string name="rotate_button">Tombol Putar</string>
+    <string name="capture_button">Tombol Tangkap</string>
+    <string name="scroll_the_screen">Gulir layar</string>
+    <string name="hello_ntap_below_to_view_your_child_s_summary">Halo, \nTap di bawah untuk melihat ringkasan anak Anda</string>
+    <string name="december_2024">Desember, 2024</string>
+    <string name="recent_analysis">Analisis Terbaru</string>
+    <string name="analysis">Analisis</string>
+    <string name="articles">Artikel</string>
+    <string name="december_08_2024">8 Desember 2024</string>
+    <string name="other_information">Informasi Lainnya</string>
+    <string name="enter_the_pin">Masukkan PIN</string>
+    <string name="child_age">Usia Anak</string>
+    <string name="child_name">Nama Anak</string>
+    <string name="day">Hari</string>
+    <string name="_12">12</string>
+    <string name="how_home_food_availability_affects_young_children_s_nutrient_intake">Bagaimana ketersediaan makanan di rumah mempengaruhi asupan gizi anak-anak muda</string>
+    <string name="find_more">Cari Lebih Banyak</string>
+    <string name="news_image">Gambar Berita</string>
+    <string name="parenting_and_home_environment_influence_children_s_exercise_and_eating_habits">Pengasuhan dan lingkungan rumah mempengaruhi kebiasaan olahraga dan makan anak-anak</string>
+    <string name="news_photo">Foto Berita</string>
+</resources>

@@ -376,7 +376,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Enter child's allergies"
-                android:inputType="numberDecimal"
+                android:inputType="text"
                 android:maxLines="1"
                 android:elegantTextHeight="true"/>
         </com.google.android.material.textfield.TextInputLayout>

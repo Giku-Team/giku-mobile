@@ -23,7 +23,7 @@
             android:id="@+id/mtrl_calendar_days_of_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Day"
+            android:text="@string/day"
             android:layout_marginTop="2dp"
             android:gravity="center"
             android:textSize="16sp"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="12"
+            android:text="@string/_12"
             android:textStyle="bold"
             android:textColor="@color/cardview_dark_background"
             android:textSize="20sp"/>

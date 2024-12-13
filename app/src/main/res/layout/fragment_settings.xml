@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.main.ProfileFragment">
+    tools:context=".view.ui.main.SettingsFragment">
     
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
@@ -71,93 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivUserProfile"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:src="@color/md_theme_primary"
-        app:shapeAppearanceOverlay="@style/CircleImageShape"
-        app:layout_constraintStart_toEndOf="@id/guidelineVertical"
-        app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
-        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalLogo" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Name"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textColor="@color/md_theme_scrim"
-        android:layout_marginVertical="20dp"
-        app:layout_constraintStart_toStartOf="@id/ivUserProfile"
-        app:layout_constraintEnd_toEndOf="@id/ivUserProfile"
-        app:layout_constraintTop_toBottomOf="@id/ivUserProfile" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textUserEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="user@gmail.com"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@id/textUserName"
-        app:layout_constraintEnd_toEndOf="@id/textUserName"
-        app:layout_constraintTop_toBottomOf="@id/textUserName" />
-    
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardSettings"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginHorizontal="20dp"
-        app:cardElevation="12dp"
-        app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalProfile"
-        app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
-        app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd">
-        
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="20dp">
-            
-            <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/CircleImageShape"
-                android:id="@+id/iconSettings"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_settings"
-                android:padding="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@color/md_theme_scrim"
-                android:layout_marginStart="20dp"
-                app:layout_constraintStart_toEndOf="@id/iconSettings"
-                app:layout_constraintTop_toTopOf="@id/iconSettings"
-                app:layout_constraintBottom_toBottomOf="@id/iconSettings" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iconSettingsArrow"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_arrow"
-                android:padding="12dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-            
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        
-    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardLanguages"
@@ -166,7 +79,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         app:cardElevation="12dp"
-        app:layout_constraintTop_toBottomOf="@id/cardSettings"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toEndOf="@id/guidelineVerticalStart"
         app:layout_constraintEnd_toStartOf="@id/guidelineVerticalEnd">
 
@@ -264,5 +177,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible"
+        app:trackColor="@color/md_theme_secondaryFixedDim"
+        app:indicatorColor="@color/md_theme_primary"
+        app:indicatorSize="50dp"
+        app:indicatorDirectionCircular="clockwise"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="@id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineVertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
