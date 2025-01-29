@@ -42,15 +42,14 @@
         android:theme="@style/Theme.Giku"
         tools:targetApi="31">
         <activity
-            android:name=".view.ui.main.LanguagesActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.ui.main.MainActivity"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".view.ui.auth.AuthActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustUnspecified">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
